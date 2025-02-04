@@ -1,0 +1,13 @@
+{
+    "cards": [
+        {
+            "name": "Test Card",
+            "description": "",
+            "type": "",
+            "rarity": "",
+            "artist": "",
+			"cardImage": "",
+            "holographic": true
+        }
+    ]
+}
