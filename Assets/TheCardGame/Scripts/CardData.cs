@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
+[CreateAssetMenu(fileName = "New Card", menuName = "Card System/Card")]
 public class CardData : ScriptableObject
 {
 
@@ -9,6 +11,7 @@ public class CardData : ScriptableObject
     public string CardDescription;
     public CardStages cardStages;
     public CardArtist cardArtist;
+    public Image cardImage;
 
 }
 
@@ -24,7 +27,7 @@ public enum CardType
     Hydro,
     Lumen,
     Metal,
-    Psyonic,
+    Psionic,
     Shadow,
     Toxic,
     Voltaic,
