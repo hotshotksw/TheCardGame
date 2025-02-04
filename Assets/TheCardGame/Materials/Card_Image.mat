@@ -33,7 +33,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Card_Image:
-        m_Texture: {fileID: 2800000, guid: 33fc38ee02089104f88c442eb84249ff, type: 3}
+        m_Texture: {fileID: 2800000, guid: bc047cbe418d3da408a1308ad47d48b4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
