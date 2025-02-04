@@ -1,0 +1,22 @@
+{
+    "cards": [
+        {
+            "name": "Test Card",
+            "description": "",
+            "type": "",
+            "rarity": "",
+            "artist": "",
+			"cardImage": "",
+            "holographic": true
+        },
+        {
+            "name": "The Maple",
+            "description": "",
+            "type": "Lumen",
+            "rarity": "Mythical",
+            "artist": "Kyle",
+			"cardImage": "",
+            "holographic": true
+        }
+    ]
+}
