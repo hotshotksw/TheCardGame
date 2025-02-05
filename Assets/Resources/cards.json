@@ -1,0 +1,22 @@
+{
+  "cards": [
+    {
+      "cardName": "Test Card",
+      "description": "This is a test card",
+      "type": "Test Type",
+      "rarity": "Mythical",
+      "artist": "Joshua",
+      "image": "cool.jpg",
+      "holographic": true
+    },
+    {
+      "cardName": "The Maple",
+      "description": "The Maple Guy",
+      "type": "Lumen",
+      "rarity": "Mythical",
+      "artist": "Kyle",
+      "image": "maple.jpg",
+      "holographic": true
+    }
+  ]
+}
