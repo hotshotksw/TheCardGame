@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,18 @@ public class CardData : ScriptableObject
     public CardArtist cardArtist;
     public Image cardImage;
 
+    public void Instantiate(CardDataBase cardData)
+    {
+        CardName = cardData.cardName;
+        cardType = Enum.Parse<CardType>(cardData.type);
+        cardRarity = Enum.Parse<CardRarity>(cardData.rarity);
+        CardDescription = cardData.description;
+        cardArtist = Enum.Parse<CardArtist>(cardData.artist);
+        cardImage = Resources.Load<Image>(cardData.image);
+    }
 }
+
+
 
 public enum CardType
 {
