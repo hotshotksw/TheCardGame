@@ -1,12 +1,12 @@
 {
   "cards": [
     {
-      "cardName": "Test Card",
-      "description": "This is a test card",
-      "type": "Test Type",
+      "cardName": "The Tiny Man",
+      "description": "The World's Tiniest Man. He's pretty small",
+      "type": "Virtuous",
       "rarity": "Mythical",
       "artist": "Joshua",
-      "image": "cool.jpg",
+      "image": "TinyMan.png",
       "holographic": true
     },
     {
