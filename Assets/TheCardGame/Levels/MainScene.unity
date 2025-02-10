@@ -789,17 +789,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card
       objectReference: {fileID: 0}
+    - target: {fileID: 2411974610474841425, guid: f8e9833eae800b24cad062600c035175, type: 3}
+      propertyPath: cardID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3847065491457690074, guid: f8e9833eae800b24cad062600c035175, type: 3}
       propertyPath: speed
       value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3847065491457690074, guid: f8e9833eae800b24cad062600c035175, type: 3}
       propertyPath: originalPosition.y
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3847065491457690074, guid: f8e9833eae800b24cad062600c035175, type: 3}
       propertyPath: originalPosition.z
-      value: -7.5
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 8053479953804659973, guid: f8e9833eae800b24cad062600c035175, type: 3}
       propertyPath: m_LocalPosition.x
