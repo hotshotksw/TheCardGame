@@ -8,21 +8,38 @@ using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
+[RequireComponent(typeof(CardData))]
 public class CardJSONReader : MonoBehaviour
 {
+    [SerializeField] int cardID;
     public GameObject cardPrefab;
+    public CardData cardData;
+    private Dictionary<string, List<CardDataBase>> cardDictionary;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cardData = gameObject.GetComponent<CardData>();
         TextAsset cards = Resources.Load<TextAsset>("cards");
-        Dictionary<string, List<CardDataBase>> cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
-        var CurrentCard = Instantiate(cardPrefab);
-        CurrentCard.GetComponent<CardData>().Instantiate(cardDictionary["cards"][0]);
+        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+        //var CurrentCard = Instantiate(cardPrefab);
+        //CurrentCard.GetComponent<CardData>().LoadData(cardDictionary["cards"][cardID]);
+        cardData.LoadData(cardDictionary["cards"][cardID]);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void UpdateData()
+    {
+        cardData.LoadData(cardDictionary["cards"][cardID]);
+    }
+
+    void UpdateData(int newID)
+    {
+        cardID = newID;
+        cardData.LoadData(cardDictionary["cards"][cardID]);
     }
 }

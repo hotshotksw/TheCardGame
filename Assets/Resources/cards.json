@@ -6,7 +6,7 @@
       "type": "Virtuous",
       "rarity": "Mythical",
       "artist": "Joshua",
-      "image": "TinyMan.png",
+      "image": "TinyMan",
       "holographic": true
     },
     {
@@ -15,7 +15,7 @@
       "type": "Lumen",
       "rarity": "Mythical",
       "artist": "Kyle",
-      "image": "maple.jpg",
+      "image": "maple",
       "holographic": true
     }
   ]

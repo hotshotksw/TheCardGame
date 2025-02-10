@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card System/Card")]
-public class CardData : ScriptableObject
+public class CardData : MonoBehaviour
 {
 
     public string CardName;
@@ -12,16 +12,16 @@ public class CardData : ScriptableObject
     public string CardDescription;
     public CardStages cardStages;
     public CardArtist cardArtist;
-    public Image cardImage;
+    public Texture2D cardImage;
 
-    public void Instantiate(CardDataBase cardData)
+    public void LoadData(CardDataBase cardData)
     {
         CardName = cardData.cardName;
         cardType = Enum.Parse<CardType>(cardData.type);
         cardRarity = Enum.Parse<CardRarity>(cardData.rarity);
         CardDescription = cardData.description;
         cardArtist = Enum.Parse<CardArtist>(cardData.artist);
-        cardImage = Resources.Load<Image>(cardData.image);
+        cardImage = Resources.Load<Texture2D>(cardData.image);
     }
 }
 
