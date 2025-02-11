@@ -15,15 +15,18 @@ public class CardJSONReader : MonoBehaviour
     public GameObject cardPrefab;
     public CardData cardData;
     private Dictionary<string, List<CardDataBase>> cardDictionary;
+    [SerializeField] Material material;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cardData = gameObject.GetComponent<CardData>();
+        //material = gameObject.GetComponent<Material>();
         TextAsset cards = Resources.Load<TextAsset>("cards");
         cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
         //var CurrentCard = Instantiate(cardPrefab);
         //CurrentCard.GetComponent<CardData>().LoadData(cardDictionary["cards"][cardID]);
         cardData.LoadData(cardDictionary["cards"][cardID]);
+        UpdateData();
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class CardJSONReader : MonoBehaviour
     void UpdateData()
     {
         cardData.LoadData(cardDictionary["cards"][cardID]);
+        material.SetTexture("_Card_Image", cardData.cardImage);
     }
 
     void UpdateData(int newID)
