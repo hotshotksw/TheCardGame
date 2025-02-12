@@ -17,6 +17,96 @@
       "artist": "Kyle",
       "image": "Maple",
       "holographic": true
+    },
+    {
+      "cardName": "The Fiddler",
+      "description": "Has Fiddled many... crimes not to be forgotten so easily.",
+      "type": "Evil",
+      "rarity": "Mythical",
+      "artist": "Bennie",
+      "image": "Card_Fiddler",
+      "holographic": true
+    },
+    {
+      "cardName": "The Savior",
+      "description": "Descends from the heavens to save those in need",
+      "type": "Virtuous",
+      "rarity": "Mythical",
+      "artist": "Bennie",
+      "image": "Card_Savior",
+      "holographic": true
+    },
+    {
+      "cardName": "The Snird",
+      "description": "Flying through the skies gracefully, once they get old enough, they fight to assert their dominance and shed their skin.",
+      "type": "Basilisk",
+      "rarity": "Common",
+      "artist": "Bennie",
+      "image": "Card_Snird",
+      "holographic": true
+    },
+    {
+      "cardName": "The Cool Dragon",
+      "description": "The evolution of the snird. Ate too many brothers after claiming its territory causing it to be unable to take flight.",
+      "type": "Basilisk",
+      "rarity": "Mythical",
+      "artist": "Bennie",
+      "image": "Card_CoolDragon",
+      "holographic": true
+    },
+    {
+      "cardName": "The Angler",
+      "description": "What is that light? I'm sure it's nothing dangerous...",
+      "type": "Hydro",
+      "rarity": "Common",
+      "artist": "Bennie",
+      "image": "Card_Angler",
+      "holographic": true
+    },
+    {
+      "cardName": "The Grippler",
+      "description": "Once he grips you... well... why don't we leave that to imagination.",
+      "type": "Brawl",
+      "rarity": "Common",
+      "artist": "Bennie",
+      "image": "Card_Grippler",
+      "holographic": true
+    },
+    {
+      "cardName": "The Hat Man",
+      "description": "What's this feeling..?",
+      "type": "Psyonic",
+      "rarity": "Rare",
+      "artist": "Bennie",
+      "image": "Card_Hatman",
+      "holographic": true
+    },
+    {
+      "cardName": "THE Hat Man",
+      "description": "Who is that..? I think I need my meds...",
+      "type": "Shadow",
+      "rarity": "Rare",
+      "artist": "Bennie",
+      "image": "Card_THEHatMan",
+      "holographic": true
+    },
+    {
+      "cardName": "The Litterer",
+      "description": "What a punk. A taint on this Earth.",
+      "type": "Metal",
+      "rarity": "Common",
+      "artist": "Bennie",
+      "image": "Card_Litterer",
+      "holographic": true
+    },
+    {
+      "cardName": "The Rat",
+      "description": "You know what they say... Anyone can cook! Not sure about this one though, don't think he's all there",
+      "type": "Toxic",
+      "rarity": "Common",
+      "artist": "Bennie",
+      "image": "Card_Rat",
+      "holographic": true
     }
   ]
 }
