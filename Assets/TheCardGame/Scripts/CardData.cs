@@ -13,6 +13,7 @@ public class CardData : MonoBehaviour
     public CardStages cardStages;
     public CardArtist cardArtist;
     public Texture2D cardImage;
+    public Texture2D cardBorder;
 
     public void LoadData(CardDataBase cardData)
     {
@@ -22,6 +23,8 @@ public class CardData : MonoBehaviour
         CardDescription = cardData.description;
         cardArtist = Enum.Parse<CardArtist>(cardData.artist);
         cardImage = Resources.Load<Texture2D>(cardData.image);
+        string borderName = "Card/border_" + cardType.ToString().ToLowerInvariant();
+        cardBorder = Resources.Load<Texture2D>(borderName);
     }
 }
 

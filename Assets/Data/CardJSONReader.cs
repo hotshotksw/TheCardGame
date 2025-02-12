@@ -39,6 +39,7 @@ public class CardJSONReader : MonoBehaviour
     {
         cardData.LoadData(cardDictionary["cards"][cardID]);
         material.SetTexture("_Card_Image", cardData.cardImage);
+        material.SetTexture("_Card_Border", cardData.cardBorder);
     }
 
     void UpdateData(int newID)
