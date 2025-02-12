@@ -28,8 +28,7 @@ public class SceneViewCard : MonoBehaviour
             return false;
         }
     }
-
-    private Rigidbody rb;
+    
     private Camera camera;
     private Vector3 WorldPos
     {
@@ -43,7 +42,6 @@ public class SceneViewCard : MonoBehaviour
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
         camera = Camera.main;
 
         DragPressed.Enable();

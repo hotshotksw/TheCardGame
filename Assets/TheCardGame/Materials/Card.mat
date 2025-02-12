@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 4760abcbb40072149bd9cd21bb21c342, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -34,11 +35,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Card_Border:
-        m_Texture: {fileID: 2800000, guid: 4216ba35404e1494c8e8c97622cdd195, type: 3}
+        m_Texture: {fileID: 2800000, guid: a21b94347a5bee7488e1de06a1a9acdd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Card_Image:
-        m_Texture: {fileID: 2800000, guid: d0c299e77625df54a89888d6c15eda8d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 564918dcc3d4bd54da0a4e70fd229679, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -89,6 +90,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: f4dd72c7f5f676f43aa0baa840428b3a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_f7ba8adad03e4ff491c5f486b10df0d7_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: c7fec0beff756a143b94e6456bee7b8d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -120,6 +125,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Distortion_Amount: 50
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
