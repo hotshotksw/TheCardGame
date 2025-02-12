@@ -176,9 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c173d03e5dc08d848bef11b4c5943bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardID: 0
-  cardPrefab: {fileID: 0}
-  cardData: {fileID: 0}
+  cardID: 3
+  cardPrefab: {fileID: 1922608784264787621}
+  cardData: {fileID: 402245786735077600}
+  material: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
 --- !u!114 &402245786735077600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,12 +193,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardName: 
-  cardType: 0
-  cardRarity: 0
+  cardType: 8
+  cardRarity: 3
   CardDescription: 
   cardStages: 0
   cardArtist: 0
   cardImage: {fileID: 0}
+  cardBorder: {fileID: 0}
 --- !u!137 &2725386372068269750
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -399,9 +401,9 @@ MonoBehaviour:
       m_Action: Axis
       m_Flags: 0
     m_Flags: 0
-  originalPosition: {x: 0, y: 0, z: 0}
+  originalPosition: {x: 0, y: 1.75, z: -8}
   originalRotation: {x: -90, y: 0, z: -90}
-  speed: 0.5
+  speed: 0.25
 --- !u!1 &2253484959165304824
 GameObject:
   m_ObjectHideFlags: 0

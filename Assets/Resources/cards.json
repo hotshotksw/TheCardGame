@@ -107,6 +107,33 @@
       "artist": "Bennie",
       "image": "Card_Rat",
       "holographic": true
+    },
+    {
+      "cardName": "The Bi Dominance",
+      "description": "tbd",
+      "type": "Fae",
+      "rarity": "Rare",
+      "artist": "Abby",
+      "image": "the_bi_dominance",
+      "holographic": true
+    },
+    {
+      "cardName": "The Builder",
+      "description": "He built those mountains ya' know.",
+      "type": "Boulder",
+      "rarity": "Mythical",
+      "artist": "Kyle",
+      "image": "the_builder",
+      "holographic": true
+    },
+    {
+      "cardName": "The Evil Hellbug 2",
+      "description": "Don't ask where The First is...",
+      "type": "Evil",
+      "rarity": "Super Rare",
+      "artist": "Brendon",
+      "image": "the_evil_hellbug_2",
+      "holographic": true
     }
   ]
 }
