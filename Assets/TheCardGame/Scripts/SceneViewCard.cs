@@ -58,6 +58,14 @@ public class SceneViewCard : MonoBehaviour
         DragPressed.canceled += _ => { isDragging = false; };
     }
 
+    public void DestroyCard()
+    {
+        DragPressed.Disable();
+        RotatePressed.Disable();
+        ScreenPos.Disable();
+        Axis.Disable();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))

@@ -20,7 +20,11 @@ public class Test_CardManager : MonoBehaviour
 
     public void DrawNewCard()
     {
-        Destroy(CurrentCard);
+        if (CurrentCard != null)
+        {
+            CurrentCard.GetComponent<SceneViewCard>().DestroyCard();
+            Destroy(CurrentCard);
+        }
 
         CurrentCard = Instantiate(CardPrefab);
 

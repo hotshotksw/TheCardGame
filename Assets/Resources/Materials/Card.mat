@@ -35,11 +35,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Card_Border:
-        m_Texture: {fileID: 2800000, guid: a21b94347a5bee7488e1de06a1a9acdd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4216ba35404e1494c8e8c97622cdd195, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Card_Image:
-        m_Texture: {fileID: 2800000, guid: 564918dcc3d4bd54da0a4e70fd229679, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0e08be2e6572b684c9eda56042e1ee75, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:

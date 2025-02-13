@@ -42,7 +42,7 @@ public enum CardType
     Hydro,
     Lumen,
     Metal,
-    Psionic,
+    Psyonic,
     Shadow,
     Toxic,
     Voltaic,
@@ -71,5 +71,7 @@ public enum CardArtist
     Kyle,
     Bennie,
     Joshua,
-    Caden
+    Caden,
+    Abby,
+    Brendon
 }

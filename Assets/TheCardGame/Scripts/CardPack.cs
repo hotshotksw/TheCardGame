@@ -7,9 +7,9 @@ public class CardPack : MonoBehaviour
     [SerializeField] private InputAction pressed;
     [SerializeField] private Vector3 EndLocation;
     [SerializeField] private float Speed;
+    [SerializeField] private bool opened = true;
 
     private Vector3 OriginalLocation;
-    private bool opened = true;
     private Test_CardManager CardManager;
     
     void Awake()
