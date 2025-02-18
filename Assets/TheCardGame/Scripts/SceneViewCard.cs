@@ -13,8 +13,8 @@ public class SceneViewCard : MonoBehaviour
     private Vector3 curScreenPos;
     //private bool CanDrag;
     private bool CanRotate;
-    private bool isDragging;
-    private bool isRotating;
+    public bool isDragging;
+    public bool isRotating;
     private bool isClickedOn
     {
         get
@@ -82,7 +82,10 @@ public class SceneViewCard : MonoBehaviour
 // new Vector3(0,1.61f,-8.17f)
     private IEnumerator Rotate()
     {
-        isRotating = true;
+        if (Input.touchCount > 1)
+        {
+            isRotating = true;
+        }
         
         while (isRotating)
         {

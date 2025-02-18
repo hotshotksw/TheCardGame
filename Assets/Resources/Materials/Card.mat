@@ -35,11 +35,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Card_Border:
-        m_Texture: {fileID: 2800000, guid: 4216ba35404e1494c8e8c97622cdd195, type: 3}
+        m_Texture: {fileID: 2800000, guid: d9ef7ad1bc888e24ea943c73259efec9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Card_Image:
-        m_Texture: {fileID: 2800000, guid: 0e08be2e6572b684c9eda56042e1ee75, type: 3}
+        m_Texture: {fileID: 2800000, guid: 676a37724dace244f8d3aea5cc53a613, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -75,7 +75,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_188a579275f840a3b35bb01ffa6a96c8_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: cfa92f5d612a1e9488587de0300fdd1a, type: 3}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1d02f8951aee42d7a689d0d8d81d3510_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 93644b30dbf464645b2799a301a90c5a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_4f2d99412b954e7498f321144d5c8caf_Texture_1_Texture2D:
