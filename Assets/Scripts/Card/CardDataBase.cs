@@ -12,5 +12,5 @@ public class CardDataBase
     public string artist;
     public string image;
     public bool holographic;
-
+    public int ID;
 }
