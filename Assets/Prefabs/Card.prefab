@@ -263,6 +263,8 @@ MonoBehaviour:
   cardData: {fileID: 0}
   material: {fileID: 0}
   renderer: {fileID: 0}
+  name: {fileID: 1284144429346229865}
+  description: {fileID: 7308141440945387275}
 --- !u!137 &8761126010795209268
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

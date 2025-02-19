@@ -8,6 +8,7 @@ using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System;
+using TMPro;
 
 [RequireComponent(typeof(CardData))]
 public class CardJSONReader : MonoBehaviour
@@ -18,6 +19,8 @@ public class CardJSONReader : MonoBehaviour
     [SerializeField] Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] Material material;
     [SerializeField] Renderer renderer;
+    [SerializeField] GameObject name;
+    [SerializeField] GameObject description;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,6 +57,8 @@ public class CardJSONReader : MonoBehaviour
         var cardNAme = cardData.cardImage.ToString();
         var newMaterial = Resources.Load<Material>("Materials/"+cardDictionary["cards"][cardID].image);
         renderer.material = newMaterial;
+        name.GetComponent<TextMeshPro>().text = cardData.CardName;
+        description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
     }
 
     public void UpdateData(int newID)
@@ -62,5 +67,7 @@ public class CardJSONReader : MonoBehaviour
         cardData.LoadData(cardDictionary["cards"][cardID]);
         var newMaterial = Resources.Load<Material>("Materials/" + cardDictionary["cards"][cardID].image);
         renderer.material = newMaterial;
+        name.GetComponent<TextMeshPro>().text = cardData.CardName;
+        description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
     }
 }
