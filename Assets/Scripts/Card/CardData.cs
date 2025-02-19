@@ -19,7 +19,7 @@ public class CardData : MonoBehaviour
     {
         CardName = cardData.cardName;
         cardType = Enum.Parse<CardType>(cardData.type);
-        cardRarity = Enum.Parse<CardRarity>(cardData.rarity);
+        cardRarity = Enum.Parse<CardRarity>(cardData.rarity.Replace(" ",""));
         CardDescription = cardData.description;
         cardArtist = Enum.Parse<CardArtist>(cardData.artist);
         cardImage = Resources.Load<Texture2D>(cardData.image);

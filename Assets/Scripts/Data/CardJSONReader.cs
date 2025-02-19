@@ -56,18 +56,19 @@ public class CardJSONReader : MonoBehaviour
         cardData.LoadData(cardDictionary["cards"][cardID]);
         var cardNAme = cardData.cardImage.ToString();
         var newMaterial = Resources.Load<Material>("Materials/"+cardDictionary["cards"][cardID].image);
-        renderer.material.SetTexture("_Card_Texture", cardData.cardImage);
-        renderer.material.SetTexture("_Card_TBorder", Resources.Load<Texture2D>("Card/border_" + cardData.cardType.ToString().ToLowerInvariant());
+        renderer.material.SetTexture("_Card_Image", cardData.cardImage);
+        renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
         name.GetComponent<TextMeshPro>().text = cardData.CardName;
         description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
     }
-
+    
     public void UpdateData(int newID)
     {
         cardID = newID;
         cardData.LoadData(cardDictionary["cards"][cardID]);
         var newMaterial = Resources.Load<Material>("Materials/" + cardDictionary["cards"][cardID].image);
-        renderer.material = newMaterial;
+        renderer.material.SetTexture("_Card_Image", cardData.cardImage);
+        renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
         name.GetComponent<TextMeshPro>().text = cardData.CardName;
         description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
     }
