@@ -1,0 +1,55 @@
+using UnityEngine;
+
+
+
+
+using System.IO;
+using UnityEngine.Windows.Speech;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+[RequireComponent(typeof(CardData))]
+public class CardJSONReader : MonoBehaviour
+{
+    [SerializeField] int cardID;
+    public GameObject cardPrefab;
+    public CardData cardData;
+    public Dictionary<string, List<CardDataBase>> cardDictionary;
+    [SerializeField] Material material;
+    [SerializeField] Renderer renderer;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        cardData = gameObject.GetComponent<CardData>();
+        material = gameObject.GetComponent<Material>();
+        renderer = gameObject.GetComponent<Renderer>();
+        TextAsset cards = Resources.Load<TextAsset>("cards");
+        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+        //var CurrentCard = Instantiate(cardPrefab);
+        //CurrentCard.GetComponent<CardData>().LoadData(cardDictionary["cards"][cardID]);
+        cardData.LoadData(cardDictionary["cards"][cardID]);
+        UpdateData();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void UpdateData()
+    {
+        cardData.LoadData(cardDictionary["cards"][cardID]);
+        var cardNAme = cardData.cardImage.ToString();
+        var newMaterial = Resources.Load<Material>("Materials/"+cardDictionary["cards"][cardID].image);
+        renderer.material = newMaterial;
+    }
+
+    public void UpdateData(int newID)
+    {
+        cardID = newID;
+        cardData.LoadData(cardDictionary["cards"][cardID]);
+        var newMaterial = Resources.Load<Material>("Materials/" + cardDictionary["cards"][cardID].image);
+        renderer.material = newMaterial;
+    }
+}
