@@ -4,41 +4,51 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private Dictionary<string, CollectionSet> collection = new Dictionary<string, CollectionSet>();
+    private Dictionary<int, CollectionSet> collection = new Dictionary<int, CollectionSet>();
     public static Action<Inventory> OnCollectionChanged = delegate { };
 
-    public void AddCard(CardDataBase cardData)
+    public void AddCard(int cardID, bool holographic = false)
     {
-        if (collection.ContainsKey(cardData.cardName))
+        if (collection.ContainsKey(cardID))
         {
-            collection[cardData.cardName].quantity++;
+            collection[cardID].quantity++;
+            if(holographic) collection[cardID].holographic = true;
         }
         else
         {
-            collection.Add(cardData.cardName, new CollectionSet() { data = cardData, quantity = 1 });
+            collection.Add(cardID, new CollectionSet() { cardID = cardID, quantity = 1, holographic = holographic});
         }
         OnCollectionChanged?.Invoke(this);
     }
 
-    public void RemoveCard(CardDataBase cardData)
+    public void RemoveCard(int cardID)
     {
-        if (collection.ContainsKey(cardData.cardName))
+        if (collection.ContainsKey(cardID))
         {
-            if (collection[cardData.cardName].Has)
+            if (collection[cardID].Has)
             {
-                collection[cardData.cardName].quantity--;
+                collection[cardID].quantity--;
                 OnCollectionChanged?.Invoke(this);
             }
         }
     }
 
-    public CollectionSet SetOfCard(CardDataBase match)
+    public CollectionSet SetOfCard(int matchID)
     {
-        if (collection.ContainsKey(match.cardName))
+        if (collection.ContainsKey(matchID))
         {
-            return collection[match.cardName];
+            return collection[matchID];
         }
-        return new CollectionSet() { data = match, quantity = 0 };
+        return new CollectionSet() { cardID = matchID, quantity = 0 };
+    }
+
+    public void LoadCardID(int cardID)
+    {
+        if (!collection.ContainsKey(cardID))
+        {
+            collection.Add(cardID, new CollectionSet() { cardID = cardID, quantity = 0 });
+        }
+        OnCollectionChanged?.Invoke(this);
     }
 
     public List<CollectionSet> GetCompleteCollection()
@@ -51,15 +61,17 @@ public class Inventory : MonoBehaviour
         collection.Clear();
         foreach (var item in inventory)
         {
-            collection.Add(item.data.cardName, item);
+            collection.Add(item.cardID, item);
         }
+        OnCollectionChanged?.Invoke(this);
     }
 }
 
 [Serializable]
 public class CollectionSet
 {
-    public CardDataBase data;
+    public int cardID;
     public int quantity;
+    public bool holographic;
     public bool Has => quantity > 0;
 }

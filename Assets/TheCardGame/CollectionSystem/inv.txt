@@ -1,1 +1,19 @@
-{"collectionSets":[{"data":{"cardName":"Bob","type":"wed","rarity":"wefw","description":"wedwe","artist":"edwed","image":"wqdw","holographic":true},"quantity":1}]}
+{
+    "collectionSets": [
+        {
+            "cardID": 1,
+            "quantity": 8,
+            "holographic": false
+        },
+        {
+            "cardID": 2,
+            "quantity": 8,
+            "holographic": false
+        },
+        {
+            "cardID": 4,
+            "quantity": 9,
+            "holographic": false
+        }
+    ]
+}

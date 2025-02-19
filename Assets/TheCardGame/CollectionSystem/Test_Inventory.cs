@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class Test_Inventory : MonoBehaviour
 {
-    void Start()
-    {
-    }
-
+    
     [SerializeField] private Inventory _inventory;
     [SerializeField] private InventorySaving saver;
 
@@ -24,7 +21,7 @@ public class Test_Inventory : MonoBehaviour
     [ContextMenu("AddCard")]
     public void AddCard()
     {
-        _inventory.AddCard(new CardDataBase() { cardName = cardToAdd.cardName, image = cardToAdd.image, artist = cardToAdd.artist, description = cardToAdd.description, rarity = cardToAdd.rarity, type = cardToAdd.type, holographic = cardToAdd.holographic });
+        _inventory.AddCard(cardToAdd);
     }
 
     [ContextMenu("Remove")]
@@ -33,5 +30,5 @@ public class Test_Inventory : MonoBehaviour
         _inventory.RemoveCard(cardToAdd);
     }
 
-    [SerializeField] private CardDataBase cardToAdd;
+    [SerializeField] private int cardToAdd;
 }

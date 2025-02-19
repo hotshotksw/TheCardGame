@@ -11,7 +11,7 @@ public class CollectedCardDisplay : CardRenderBase
     protected override void Visualize()
     {
 
-        text.text = data.data.cardName;
+        text.text = data.cardID + " | " + data.quantity;
         if(!data.Has) image.color = Color.gray;
 
 
@@ -22,6 +22,15 @@ public class CollectedCardDisplay : CardRenderBase
     
     
 }
+
+
+
+
+
+
+
+
+
 
 public abstract class CardRenderBase : MonoBehaviour
 {
