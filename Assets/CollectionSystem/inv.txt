@@ -1,0 +1,19 @@
+{
+    "collectionSets": [
+        {
+            "cardID": 1,
+            "quantity": 8,
+            "holographic": false
+        },
+        {
+            "cardID": 2,
+            "quantity": 8,
+            "holographic": false
+        },
+        {
+            "cardID": 4,
+            "quantity": 9,
+            "holographic": false
+        }
+    ]
+}

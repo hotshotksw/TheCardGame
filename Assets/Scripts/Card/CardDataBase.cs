@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+[Serializable]
 public class CardDataBase
 {
 
@@ -12,5 +13,5 @@ public class CardDataBase
     public string artist;
     public string image;
     public bool holographic;
-
+    public int ID;
 }

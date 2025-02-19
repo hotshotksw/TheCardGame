@@ -7,6 +7,7 @@ using System.IO;
 using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System;
 
 [RequireComponent(typeof(CardData))]
 public class CardJSONReader : MonoBehaviour
@@ -14,7 +15,7 @@ public class CardJSONReader : MonoBehaviour
     [SerializeField] int cardID;
     public GameObject cardPrefab;
     public CardData cardData;
-    public Dictionary<string, List<CardDataBase>> cardDictionary;
+    [SerializeField] Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] Material material;
     [SerializeField] Renderer renderer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,6 +29,16 @@ public class CardJSONReader : MonoBehaviour
         //var CurrentCard = Instantiate(cardPrefab);
         //CurrentCard.GetComponent<CardData>().LoadData(cardDictionary["cards"][cardID]);
         cardData.LoadData(cardDictionary["cards"][cardID]);
+        var names = Enum.GetNames(typeof(CardRarity));
+        foreach (var name in names)
+        {
+            cardDictionary[name] = new List<CardDataBase>();
+        }
+        foreach (var item in cardDictionary["cards"])
+        {
+            item.ID = cardDictionary["cards"].IndexOf(item);
+            cardDictionary[item.rarity.Replace(" ","")].Add(item);
+        }
         UpdateData();
     }
 
