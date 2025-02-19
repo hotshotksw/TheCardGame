@@ -22,7 +22,7 @@ public class Test_CardManager : MonoBehaviour
     {
         if (CurrentCard != null)
         {
-            CurrentCard.GetComponent<SceneViewCard>().DestroyCard();
+            //CurrentCard.GetComponent<SceneViewCard>().DestroyCard();
             Destroy(CurrentCard);
         }
 
