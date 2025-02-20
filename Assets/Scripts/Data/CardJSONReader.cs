@@ -7,6 +7,8 @@ using System.IO;
 using UnityEngine.Windows.Speech;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System;
+using TMPro;
 
 [RequireComponent(typeof(CardData))]
 public class CardJSONReader : MonoBehaviour
@@ -14,9 +16,11 @@ public class CardJSONReader : MonoBehaviour
     [SerializeField] int cardID;
     public GameObject cardPrefab;
     public CardData cardData;
-    public Dictionary<string, List<CardDataBase>> cardDictionary;
+    [SerializeField] Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] Material material;
     [SerializeField] Renderer renderer;
+    [SerializeField] GameObject name;
+    [SerializeField] GameObject description;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +32,16 @@ public class CardJSONReader : MonoBehaviour
         //var CurrentCard = Instantiate(cardPrefab);
         //CurrentCard.GetComponent<CardData>().LoadData(cardDictionary["cards"][cardID]);
         cardData.LoadData(cardDictionary["cards"][cardID]);
+        var names = Enum.GetNames(typeof(CardRarity));
+        foreach (var name in names)
+        {
+            cardDictionary[name] = new List<CardDataBase>();
+        }
+        foreach (var item in cardDictionary["cards"])
+        {
+            item.ID = cardDictionary["cards"].IndexOf(item);
+            cardDictionary[item.rarity.Replace(" ","")].Add(item);
+        }
         UpdateData();
     }
 
@@ -42,14 +56,20 @@ public class CardJSONReader : MonoBehaviour
         cardData.LoadData(cardDictionary["cards"][cardID]);
         var cardNAme = cardData.cardImage.ToString();
         var newMaterial = Resources.Load<Material>("Materials/"+cardDictionary["cards"][cardID].image);
-        renderer.material = newMaterial;
+        renderer.material.SetTexture("_Card_Image", cardData.cardImage);
+        renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
+        name.GetComponent<TextMeshPro>().text = cardData.CardName;
+        description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
     }
-
+    
     public void UpdateData(int newID)
     {
         cardID = newID;
         cardData.LoadData(cardDictionary["cards"][cardID]);
         var newMaterial = Resources.Load<Material>("Materials/" + cardDictionary["cards"][cardID].image);
-        renderer.material = newMaterial;
+        renderer.material.SetTexture("_Card_Image", cardData.cardImage);
+        renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
+        name.GetComponent<TextMeshPro>().text = cardData.CardName;
+        description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
     }
 }

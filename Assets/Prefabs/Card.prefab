@@ -217,8 +217,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100486791565088055}
+  - component: {fileID: 6078459045790438811}
   - component: {fileID: 8761126010795209268}
   - component: {fileID: 1166416481162771459}
+  - component: {fileID: 668560533190264902}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -244,6 +246,25 @@ Transform:
   - {fileID: 1701822922740391309}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6078459045790438811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519665030223366009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c173d03e5dc08d848bef11b4c5943bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardID: 0
+  cardPrefab: {fileID: 0}
+  cardData: {fileID: 0}
+  material: {fileID: 0}
+  renderer: {fileID: 0}
+  name: {fileID: 1284144429346229865}
+  description: {fileID: 7308141440945387275}
 --- !u!137 &8761126010795209268
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -325,6 +346,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 10
+--- !u!114 &668560533190264902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519665030223366009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22878310c2709014bad55506be1e510b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardName: 
+  cardType: 0
+  cardRarity: 0
+  CardDescription: 
+  cardStages: 0
+  cardArtist: 0
+  cardImage: {fileID: 0}
+  cardBorder: {fileID: 0}
 --- !u!1 &2526197737762623319
 GameObject:
   m_ObjectHideFlags: 0
