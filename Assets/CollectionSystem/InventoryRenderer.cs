@@ -13,7 +13,10 @@ public class InventoryRenderer : MonoBehaviour
         Inventory.OnCollectionChanged -= Render;
     }
 
+    [SerializeField] private int cardPerRow;
+
     [SerializeField] private Vector2 offsetPerCard;
+    [SerializeField] private int offsetPerRow;
     [SerializeField] private CollectedCardDisplay cardPrefab;
     private List<CollectedCardDisplay> activeCards = new();
     private void Render(Inventory inven)
@@ -24,9 +27,16 @@ public class InventoryRenderer : MonoBehaviour
         }
         activeCards.Clear();
         int index = 0;
+        int yOffset = 0;
         foreach (var item in inven.GetCompleteCollection())
         {
-            CollectedCardDisplay card = Instantiate(cardPrefab, transform.position + (Vector3)(index * offsetPerCard), Quaternion.identity, transform);
+            if(((index % cardPerRow) == 0) && (index != 0))
+            {
+                yOffset += offsetPerRow;
+            }
+            Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
+            pos.y = yOffset;
+            CollectedCardDisplay card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
             card.Setup(item);
             activeCards.Add(card);
             index++;
