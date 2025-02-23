@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Serializable]
-    struct SceneCard
+    public struct SceneCard
     {
         [SerializeField] public GameObject CardObject;
         [SerializeField] Vector3 OriginalLocation;
@@ -20,20 +20,16 @@ public class GameManager : MonoBehaviour
             InUse = false;
         }
 
-        public void SetCardLocation(Transform transform)
-        {
-            
-        }
-
         public Vector3 GetOriginalLocation()
         {
-            return OriginalLocation;
+            return this.OriginalLocation;
         }
     }
 
     public enum MenuState {
         MAIN,
-        PACK
+        PACK,
+        OPENING
     }
 
     [SerializeField] private List<SceneCard> cards = new List<SceneCard>();
@@ -86,9 +82,12 @@ public class GameManager : MonoBehaviour
 
                 if(Input.GetMouseButton(0))
                 {
-
+                    menuState = MenuState.OPENING;
                 }
                 break;
+            case MenuState.OPENING:
+                    
+                    break;
             default:
                 foreach( SceneCard card in cards)
                 {
@@ -102,5 +101,10 @@ public class GameManager : MonoBehaviour
     private void SetLocation(Transform objectTransform, Vector3 Location, float speed)
     {
         objectTransform.position = Vector3.Lerp(objectTransform.position, Location, Time.deltaTime * speed);
+    }
+
+    public List<SceneCard> GetSceneCards()
+    {
+        return cards;
     }
 }

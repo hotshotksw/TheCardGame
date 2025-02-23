@@ -23,6 +23,13 @@ public class UserRotator : MonoBehaviour
                 HandleInputDesktop();
                 transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
             }
+            else
+            {
+                Debug.Log("RESETTING");
+                _yaw = 0f;
+                _pitch = 0f;
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.identity, Time.deltaTime * sensitivity);
+            }
         }
         else
         {
