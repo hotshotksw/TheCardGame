@@ -72,4 +72,29 @@ public class CardJSONReader : MonoBehaviour
         name.GetComponent<TextMeshPro>().text = cardData.CardName;
         description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
     }
+
+    public static List<CardDataBase> getCards()
+    {
+        TextAsset cards = Resources.Load<TextAsset>("cards");
+        var dict = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+        return dict["cards"];
+    }
+
+    public static int getIDbyName(string name)
+    {
+        TextAsset cards = Resources.Load<TextAsset>("cards");
+        var dict = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+        int id = -1;
+
+        for (int i = 0; i < dict["cards"].Count; i++)
+        {
+            if (dict["cards"][i].cardName == name)
+            {
+                id = i;
+                break;
+            }
+        }
+
+        return id;
+    }
 }
