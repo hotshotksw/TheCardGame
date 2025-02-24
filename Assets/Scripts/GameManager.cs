@@ -86,7 +86,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case MenuState.OPENING:
-                    
+                    Pack.GetComponent<Pack>().GetOneCard(cards[0]);
+                    menuState = MenuState.MAIN;
                     break;
             default:
                 foreach( SceneCard card in cards)

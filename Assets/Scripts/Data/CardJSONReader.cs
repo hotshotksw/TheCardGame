@@ -18,7 +18,7 @@ public class CardJSONReader : MonoBehaviour
     public CardData cardData;
     [SerializeField] Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] Material material;
-    [SerializeField] Renderer renderer;
+    [SerializeField] public Renderer renderer;
     [SerializeField] GameObject name;
     [SerializeField] GameObject description;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

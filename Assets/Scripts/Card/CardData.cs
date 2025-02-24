@@ -73,5 +73,7 @@ public enum CardArtist
     Joshua,
     Caden,
     Abby,
-    Brendon
+    Brendon,
+    David,
+    Jackson
 }

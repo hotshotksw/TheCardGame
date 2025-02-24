@@ -134,6 +134,25 @@
       "artist": "Brendon",
       "image": "the_evil_hellbug_2",
       "holographic": true
+    },
+    {
+      "cardName": "The Lucky Draw",
+      "description": "Boy oh boy, do I feel lucky!",
+      "type": "Toxic",
+      "rarity": "Uncommon",
+      "artist": "David",
+      "image": "the_lucky_draw",
+      "holographic": true
+    }
+    ,
+    {
+      "cardName": "The Dog?",
+      "description": "He eats metal pipes.",
+      "type": "Metal",
+      "rarity": "Uncommon",
+      "artist": "Jackson",
+      "image": "the_dog",
+      "holographic": true
     }
   ]
 }
