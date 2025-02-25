@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
             case 4: inven_renderer.cardFilter = InventoryRenderer.Filter.HOLLOW; break;
         }
         ToggleFilterDropdown(false);
+        inven_renderer.Render(Inventory.GetComponent<Inventory>());
     }
 
     public void SetFilter(InventoryRenderer.Filter filter)

@@ -74,9 +74,8 @@ public class InventoryRenderer : MonoBehaviour
                     index++;
                 }
                 break;
-
             case Filter.RARITY: // RARITY FILTER
-                foreach(CardRarity rarity in Enum.GetValues(typeof(CardRarity)))
+                foreach(CardRarity rarity in Enum.GetValues(typeof(CardRarity))) // Sort through common rarities commmon -> mythical
                 {
                     foreach (var c in invenCopy.GetCompleteCollection())
                     {
@@ -101,7 +100,7 @@ public class InventoryRenderer : MonoBehaviour
                         card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
                         card.GetComponent<CardJSONReader>().cardID = temp;
 
-                        if (card.GetComponent<CardData>().cardRarity == rarity)
+                        if (card.GetComponent<CardData>().cardRarity == rarity) // Add them in order from common -> mythical
                         {
                             activeCards.Add(card);
                             index++;
@@ -110,10 +109,106 @@ public class InventoryRenderer : MonoBehaviour
                 }
                 break;
             case Filter.ARTIST: // ARTIST FILTER
+                foreach (CardArtist artist in Enum.GetValues(typeof(CardArtist)))
+                {
+                    foreach (var c in invenCopy.GetCompleteCollection())
+                    {
+                        if (((index % cardPerRow) == 0) && (index != 0))
+                        {
+                            yOffset += offsetPerRow;
+                        }
+                        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
+                        pos.y = yOffset;
+
+                        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
+
+                        int temp = inventory.GetCardAtIndex(index);
+                        Debug.LogWarning(artist);
+                        // Set up Cards
+
+                        TextAsset cards = Resources.Load<TextAsset>("cards");
+                        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+
+                        //cardData.LoadData(cardDictionary["cards"][temp]);
+                        //card.GetComponent<CardJSONReader>().cardData = cardData;
+                        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
+                        card.GetComponent<CardJSONReader>().cardID = temp;
+
+                        if (card.GetComponent<CardData>().cardArtist == artist)
+                        {
+                            activeCards.Add(card);
+                            index++;
+                        }
+                    }
+                }
                 break;
             case Filter.ID: // ID FILTER
+                //foreach (int id in cardDictionary.Keys)
+                //{
+                //    foreach (var c in invenCopy.GetCompleteCollection())
+                //    {
+                //        if (((index % cardPerRow) == 0) && (index != 0))
+                //        {
+                //            yOffset += offsetPerRow;
+                //        }
+                //        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
+                //        pos.y = yOffset;
+
+                //        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
+
+                //        int temp = inventory.GetCardAtIndex(index);
+                //        Debug.LogWarning(id);
+                //        Set up Cards
+
+                //       TextAsset cards = Resources.Load<TextAsset>("cards");
+                //        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+
+                //        cardData.LoadData(cardDictionary["cards"][temp]);
+                //        card.GetComponent<CardJSONReader>().cardData = cardData;
+                //        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
+                //        card.GetComponent<CardJSONReader>().cardID = temp;
+
+                //        if (card.GetComponent<CardData>().cardID == id)
+                //        {
+                //            activeCards.Add(card);
+                //            index++;
+                //        }
+                //    }
+                //}
                 break;
             case Filter.HOLLOW: // HOLLOW FILTER
+                //foreach (Card in Enum.GetValues(typeof(CardRarity)))
+                //{
+                //    foreach (var c in invenCopy.GetCompleteCollection())
+                //    {
+                //        if (((index % cardPerRow) == 0) && (index != 0))
+                //        {
+                //            yOffset += offsetPerRow;
+                //        }
+                //        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
+                //        pos.y = yOffset;
+
+                //        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
+
+                //        int temp = inventory.GetCardAtIndex(index);
+                //        Debug.LogWarning(rarity);
+                //        // Set up Cards
+
+                //        TextAsset cards = Resources.Load<TextAsset>("cards");
+                //        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+
+                //        //cardData.LoadData(cardDictionary["cards"][temp]);
+                //        //card.GetComponent<CardJSONReader>().cardData = cardData;
+                //        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
+                //        card.GetComponent<CardJSONReader>().cardID = temp;
+
+                //        if (card.GetComponent<CardData>().cardRarity == rarity)
+                //        {
+                //            activeCards.Add(card);
+                //            index++;
+                //        }
+                //    }
+                //}
                 break;
 
         }
