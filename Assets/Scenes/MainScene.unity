@@ -692,8 +692,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPerRow: 2
   inventory: {fileID: 130873274}
-  offsetPerCard: {x: 6, y: 0}
-  offsetPerRow: -7
+  offsetPerCard: {x: 1.35, y: 0}
+  offsetPerRow: -2
   cardPrefab: {fileID: 1519665030223366009, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
   cardContainer: {fileID: 1528252169}
   cardFilter: 0
@@ -7350,15 +7350,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528252168}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.36, y: 2.36, z: 2.36}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: -0.00024866176}
+  m_LocalScale: {x: 0.54, y: 0.54, z: 0.54}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1880204137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410.56, y: -840.7}
+  m_AnchoredPosition: {x: -408.8, y: -844.5201}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1529084869

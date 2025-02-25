@@ -3,6 +3,7 @@ using System.IO.IsolatedStorage;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.WSA;
 
 public class UIManager : MonoBehaviour
 {
@@ -62,8 +63,30 @@ public class UIManager : MonoBehaviour
     public void SetFilter(InventoryRenderer.Filter filter)
     {
         inven_renderer.cardFilter = filter;
+
+        // Update the filter text based on the selected filter
+        switch (filter)
+        {
+            case InventoryRenderer.Filter.NONE:
+                FilterText.text = "Filter: None"; // Update text here
+                break;
+            case InventoryRenderer.Filter.RARITY:
+                FilterText.text = "Filter: Rarity"; // Update text here
+                break;
+            case InventoryRenderer.Filter.ARTIST:
+                FilterText.text = "Filter: Artist"; // Update text here
+                break;
+            case InventoryRenderer.Filter.ID:
+                FilterText.text = "Filter: ID"; // Update text here
+                break;
+            case InventoryRenderer.Filter.HOLLOW:
+                FilterText.text = "Filter: Holographic"; // Update text here
+                break;
+        }
+
         ToggleFilterDropdown(false);
     }
+
 
     public void ToggleFilterUI()
     {
