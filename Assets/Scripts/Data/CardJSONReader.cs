@@ -13,14 +13,15 @@ using TMPro;
 [RequireComponent(typeof(CardData))]
 public class CardJSONReader : MonoBehaviour
 {
-    [SerializeField] int cardID;
+    [SerializeField] public int cardID;
     public GameObject cardPrefab;
     public CardData cardData;
-    [SerializeField] Dictionary<string, List<CardDataBase>> cardDictionary;
+    [SerializeField] public Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] Material material;
-    [SerializeField] Renderer renderer;
+    [SerializeField] public Renderer renderer;
     [SerializeField] GameObject name;
     [SerializeField] GameObject description;
+    [SerializeField] GameObject artist;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -60,6 +61,7 @@ public class CardJSONReader : MonoBehaviour
         renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
         name.GetComponent<TextMeshPro>().text = cardData.CardName;
         description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
+        artist.GetComponent<TextMeshPro>().text = "Art by " + cardData.cardArtist.ToString();
     }
     
     public void UpdateData(int newID)
@@ -71,5 +73,31 @@ public class CardJSONReader : MonoBehaviour
         renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
         name.GetComponent<TextMeshPro>().text = cardData.CardName;
         description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
+        artist.GetComponent<TextMeshPro>().text = "Art by " + cardData.cardArtist.ToString();
+    }
+
+    public static List<CardDataBase> getCards()
+    {
+        TextAsset cards = Resources.Load<TextAsset>("cards");
+        var dict = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+        return dict["cards"];
+    }
+
+    public static int getIDbyName(string name)
+    {
+        TextAsset cards = Resources.Load<TextAsset>("cards");
+        var dict = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+        int id = -1;
+
+        for (int i = 0; i < dict["cards"].Count; i++)
+        {
+            if (dict["cards"][i].cardName == name)
+            {
+                id = i;
+                break;
+            }
+        }
+
+        return id;
     }
 }

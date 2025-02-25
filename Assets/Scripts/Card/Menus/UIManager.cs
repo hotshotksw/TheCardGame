@@ -1,3 +1,4 @@
+using System;
 using System.IO.IsolatedStorage;
 using TMPro;
 using UnityEngine;
@@ -13,24 +14,40 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI FilterText;
 
     public GameObject Inventory;
+    public InventoryRenderer inven_renderer;
 
-    public bool isFilterOpen = false;
-    public bool isFilterDropdownOpen = false;
+    private bool isFilterOpen = false;
+    private bool isFilterDropdownOpen = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        inven_renderer.ToggleDisplay(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    public void ChangeFilter(string filterName)
+
+    public void NewSetFilter(int filter)
     {
-        FilterText.text = filterName;
-        ToggleFilterDropdown();
+        switch(filter)
+        {
+            case 0: inven_renderer.cardFilter = InventoryRenderer.Filter.NONE; break;
+            case 1: inven_renderer.cardFilter = InventoryRenderer.Filter.RARITY; break;
+            case 2: inven_renderer.cardFilter = InventoryRenderer.Filter.ARTIST; break;
+            case 3: inven_renderer.cardFilter = InventoryRenderer.Filter.ID; break;
+            case 4: inven_renderer.cardFilter = InventoryRenderer.Filter.HOLLOW; break;
+        }
+        ToggleFilterDropdown(false);
+        inven_renderer.Render(Inventory.GetComponent<Inventory>());
+    }
+
+    public void SetFilter(InventoryRenderer.Filter filter)
+    {
+        inven_renderer.cardFilter = filter;
+        ToggleFilterDropdown(false);
     }
 
     public void ToggleFilterUI()
@@ -44,20 +61,21 @@ public class UIManager : MonoBehaviour
         {
             FilterUI.SetActive(true);
             ProfileTop.SetActive(false);
+            inven_renderer.Render(Inventory.GetComponent<Inventory>());
         }
 
         isFilterOpen = !isFilterOpen;
         ToggleCollection();
     }
 
-    public void ToggleFilterDropdown()
+    public void ToggleFilterDropdown(bool val)
     {
-        if (isFilterDropdownOpen)
-        {
-            FilterDropdown.SetActive(false);
-        }else
+        if (val)
         {
             FilterDropdown.SetActive(true);
+        }else
+        {
+            FilterDropdown.SetActive(false);
         }
 
         isFilterDropdownOpen = !isFilterDropdownOpen;
@@ -77,12 +95,13 @@ public class UIManager : MonoBehaviour
 
     public void ToggleCollection()
     {
+        var invRenderer = Inventory.GetComponent<InventoryRenderer>();
         if(isFilterOpen)
         {
-            Inventory.SetActive(true);
+            invRenderer.ToggleDisplay(true);
         }else
         {
-            Inventory.SetActive(false);
+            invRenderer.ToggleDisplay(false);
         }
     }
 }

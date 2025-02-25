@@ -65,6 +65,32 @@ public class Inventory : MonoBehaviour
         }
         OnCollectionChanged?.Invoke(this);
     }
+
+    /// <summary>
+    /// Iterates through the collection, finding the card at a specific index of the collection.
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns> returns -1 if index is out of range or doesn't exist. </returns>
+    public int GetCardAtIndex(int index)
+    {
+        Debug.LogWarning("Collection Count: " + collection.Count.ToString());
+        Debug.LogWarning("Input Index: " + index.ToString());
+        if (collection.Count <= (index)) return -1;
+
+        int tempIndex = 0;
+        foreach (KeyValuePair<int, CollectionSet> pair in collection)
+        {
+            Debug.LogWarning("Temp Index" + tempIndex.ToString());
+            if (tempIndex == index)
+            {
+                Debug.LogWarning("Index Get: " + tempIndex.ToString());
+                return pair.Key;
+            }
+            tempIndex++;
+        }
+
+        return -1;
+    }
 }
 
 [Serializable]
