@@ -32,17 +32,33 @@ public class UIManager : MonoBehaviour
 
     public void NewSetFilter(int filter)
     {
-        switch(filter)
+        switch (filter)
         {
-            case 0: inven_renderer.cardFilter = InventoryRenderer.Filter.NONE; break;
-            case 1: inven_renderer.cardFilter = InventoryRenderer.Filter.RARITY; break;
-            case 2: inven_renderer.cardFilter = InventoryRenderer.Filter.ARTIST; break;
-            case 3: inven_renderer.cardFilter = InventoryRenderer.Filter.ID; break;
-            case 4: inven_renderer.cardFilter = InventoryRenderer.Filter.HOLLOW; break;
+            case 0:
+                inven_renderer.cardFilter = InventoryRenderer.Filter.NONE;
+                FilterText.text = "Filter: None"; // Update text here
+                break;
+            case 1:
+                inven_renderer.cardFilter = InventoryRenderer.Filter.RARITY;
+                FilterText.text = "Filter: Rarity"; // Update text here
+                break;
+            case 2:
+                inven_renderer.cardFilter = InventoryRenderer.Filter.ARTIST;
+                FilterText.text = "Filter: Artist"; // Update text here
+                break;
+            case 3:
+                inven_renderer.cardFilter = InventoryRenderer.Filter.ID;
+                FilterText.text = "Filter: ID"; // Update text here
+                break;
+            case 4:
+                inven_renderer.cardFilter = InventoryRenderer.Filter.HOLLOW;
+                FilterText.text = "Filter: Holographic"; // Update text here
+                break;
         }
         ToggleFilterDropdown(false);
         inven_renderer.Render(Inventory.GetComponent<Inventory>());
     }
+
 
     public void SetFilter(InventoryRenderer.Filter filter)
     {
