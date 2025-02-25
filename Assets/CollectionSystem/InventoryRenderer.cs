@@ -1,9 +1,8 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
+using System.Linq;
 using UnityEngine;
-using static UnityEngine.Rendering.GPUSort;
 
 public class InventoryRenderer : MonoBehaviour
 {
@@ -22,7 +21,16 @@ public class InventoryRenderer : MonoBehaviour
     [SerializeField] private Vector2 offsetPerCard;
     [SerializeField] private int offsetPerRow;
     [SerializeField] private GameObject cardPrefab;
+    [SerializeField] private Transform cardContainer;  // The container to hold cards in the scene
     private List<GameObject> activeCards = new();
+
+    private bool isDragging = false;
+    private Vector3 initialContainerPos;
+    private Vector3 mouseStartPos;
+
+    // Scroll lock variables
+    private float maxScrollHeight;
+    private float minScrollHeight;
 
     public enum Filter
     {
@@ -34,184 +42,71 @@ public class InventoryRenderer : MonoBehaviour
     }
 
     public Filter cardFilter = Filter.NONE;
-    
 
     private CardData cardData;
     private Dictionary<string, List<CardDataBase>> cardDictionary;
+
     public void Render(Inventory inven)
     {
         ClearActiveCards();
         int index = 0;
         int yOffset = 0;
-        var invenCopy = inven;
 
-        switch(cardFilter)
+        // Get a sorted copy of the inventory based on the current filter
+        List<CollectionSet> sortedCollection = new List<CollectionSet>(inven.GetCompleteCollection());
+
+        switch (cardFilter)
         {
-            case Filter.NONE: // NO FILTER
-                foreach (var item in invenCopy.GetCompleteCollection())
-                {
-                    if (((index % cardPerRow) == 0) && (index != 0))
-                    {
-                        yOffset += offsetPerRow;
-                    }
-                    Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
-                    pos.y = yOffset;
-
-                    GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
-
-                    int temp = inventory.GetCardAtIndex(index);
-                    // Set up Cards
-
-                    TextAsset cards = Resources.Load<TextAsset>("cards");
-                    cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
-
-                    //cardData.LoadData(cardDictionary["cards"][temp]);
-                    //card.GetComponent<CardJSONReader>().cardData = cardData;
-                    card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
-                    card.GetComponent<CardJSONReader>().cardID = temp;
-
-                    activeCards.Add(card);
-                    index++;
-                }
-                break;
-            case Filter.RARITY: // RARITY FILTER
-                foreach(CardRarity rarity in Enum.GetValues(typeof(CardRarity))) // Sort through common rarities commmon -> mythical
-                {
-                    foreach (var c in invenCopy.GetCompleteCollection())
-                    {
-                        if (((index % cardPerRow) == 0) && (index != 0))
-                        {
-                            yOffset += offsetPerRow;
-                        }
-                        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
-                        pos.y = yOffset;
-
-                        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
-
-                        int temp = inventory.GetCardAtIndex(index);
-                        Debug.LogWarning(rarity);
-                        // Set up Cards
-
-                        TextAsset cards = Resources.Load<TextAsset>("cards");
-                        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
-
-                        //cardData.LoadData(cardDictionary["cards"][temp]);
-                        //card.GetComponent<CardJSONReader>().cardData = cardData;
-                        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
-                        card.GetComponent<CardJSONReader>().cardID = temp;
-
-                        if (card.GetComponent<CardData>().cardRarity == rarity) // Add them in order from common -> mythical
-                        {
-                            activeCards.Add(card);
-                            index++;
-                        }
-                    }
-                }
-                break;
-            case Filter.ARTIST: // ARTIST FILTER
-                foreach (CardArtist artist in Enum.GetValues(typeof(CardArtist)))
-                {
-                    foreach (var c in invenCopy.GetCompleteCollection())
-                    {
-                        if (((index % cardPerRow) == 0) && (index != 0))
-                        {
-                            yOffset += offsetPerRow;
-                        }
-                        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
-                        pos.y = yOffset;
-
-                        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
-
-                        int temp = inventory.GetCardAtIndex(index);
-                        Debug.LogWarning(artist);
-                        // Set up Cards
-
-                        TextAsset cards = Resources.Load<TextAsset>("cards");
-                        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
-
-                        //cardData.LoadData(cardDictionary["cards"][temp]);
-                        //card.GetComponent<CardJSONReader>().cardData = cardData;
-                        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
-                        card.GetComponent<CardJSONReader>().cardID = temp;
-
-                        if (card.GetComponent<CardData>().cardArtist == artist)
-                        {
-                            activeCards.Add(card);
-                            index++;
-                        }
-                    }
-                }
-                break;
-            case Filter.ID: // ID FILTER
-                //foreach (int id in cardDictionary.Keys)
-                //{
-                //    foreach (var c in invenCopy.GetCompleteCollection())
-                //    {
-                //        if (((index % cardPerRow) == 0) && (index != 0))
-                //        {
-                //            yOffset += offsetPerRow;
-                //        }
-                //        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
-                //        pos.y = yOffset;
-
-                //        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
-
-                //        int temp = inventory.GetCardAtIndex(index);
-                //        Debug.LogWarning(id);
-                //        Set up Cards
-
-                //       TextAsset cards = Resources.Load<TextAsset>("cards");
-                //        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
-
-                //        cardData.LoadData(cardDictionary["cards"][temp]);
-                //        card.GetComponent<CardJSONReader>().cardData = cardData;
-                //        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
-                //        card.GetComponent<CardJSONReader>().cardID = temp;
-
-                //        if (card.GetComponent<CardData>().cardID == id)
-                //        {
-                //            activeCards.Add(card);
-                //            index++;
-                //        }
-                //    }
-                //}
-                break;
-            case Filter.HOLLOW: // HOLLOW FILTER
-                //foreach (Card in Enum.GetValues(typeof(CardRarity)))
-                //{
-                //    foreach (var c in invenCopy.GetCompleteCollection())
-                //    {
-                //        if (((index % cardPerRow) == 0) && (index != 0))
-                //        {
-                //            yOffset += offsetPerRow;
-                //        }
-                //        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
-                //        pos.y = yOffset;
-
-                //        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
-
-                //        int temp = inventory.GetCardAtIndex(index);
-                //        Debug.LogWarning(rarity);
-                //        // Set up Cards
-
-                //        TextAsset cards = Resources.Load<TextAsset>("cards");
-                //        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
-
-                //        //cardData.LoadData(cardDictionary["cards"][temp]);
-                //        //card.GetComponent<CardJSONReader>().cardData = cardData;
-                //        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
-                //        card.GetComponent<CardJSONReader>().cardID = temp;
-
-                //        if (card.GetComponent<CardData>().cardRarity == rarity)
-                //        {
-                //            activeCards.Add(card);
-                //            index++;
-                //        }
-                //    }
-                //}
+            case Filter.NONE:
                 break;
 
+            case Filter.RARITY:
+                sortedCollection.Sort((a, b) =>
+                    cardDictionary["cards"][a.cardID].rarity.CompareTo(cardDictionary["cards"][b.cardID].rarity));
+                break;
+
+            case Filter.ARTIST:
+                sortedCollection.Sort((a, b) =>
+                    cardDictionary["cards"][a.cardID].artist.CompareTo(cardDictionary["cards"][b.cardID].artist));
+                break;
+
+            case Filter.ID:
+                sortedCollection.Sort((a, b) => a.cardID.CompareTo(b.cardID));
+                break;
+
+            case Filter.HOLLOW:
+                sortedCollection = sortedCollection.Where(card => card.holographic).ToList();
+                break;
         }
+
+        foreach (var item in sortedCollection)
+        {
+            if (((index % cardPerRow) == 0) && (index != 0))
+            {
+                yOffset += offsetPerRow;
+            }
+
+            Vector3 pos = new Vector3((index % cardPerRow) * offsetPerCard.x, yOffset, 0);
+            GameObject card = Instantiate(cardPrefab, cardContainer.position + pos, Quaternion.identity, cardContainer);
+
+            // Get card ID from sorted inventory
+            int temp = item.cardID;
+
+            // Load card data from JSON
+            TextAsset cards = Resources.Load<TextAsset>("cards");
+            cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+
+            card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
+            card.GetComponent<CardJSONReader>().cardID = temp;
+
+            activeCards.Add(card);
+            index++;
+        }
+
+        // Adjust card container size after adding cards (if necessary)
+        int rows = Mathf.CeilToInt((float)sortedCollection.Count / cardPerRow);
+        maxScrollHeight = rows * offsetPerRow; // Max scroll height based on number of rows
+        minScrollHeight = -120f; // Scroll can't go past the top
     }
 
     private void ClearActiveCards()
@@ -225,16 +120,43 @@ public class InventoryRenderer : MonoBehaviour
 
     public void ToggleDisplay(bool isVisible)
     {
-        if(isVisible)
+        if (isVisible)
         {
             OnEnable();
-           
         }
         else
         {
             ClearActiveCards();
             OnDisable();
         }
-        
+    }
+
+    private void Update()
+    {
+        // Check if the user clicks and starts dragging
+        if (Input.GetMouseButtonDown(0))
+        {
+            isDragging = true;
+            mouseStartPos = Input.mousePosition;
+            initialContainerPos = cardContainer.position;
+        }
+
+        // If dragging, update the position based on mouse movement
+        if (isDragging)
+        {
+            float deltaY = Input.mousePosition.y - mouseStartPos.y;
+            Vector3 newPosition = initialContainerPos + new Vector3(0, deltaY, 0);
+
+            // Smooth movement by ensuring it doesn't instantly snap back
+            newPosition.y = Mathf.Clamp(newPosition.y, -maxScrollHeight, 0); // Prevent going past the top or bottom
+
+            cardContainer.position = Vector3.Lerp(cardContainer.position, newPosition, Time.deltaTime * 10f); // Smooth transition
+        }
+
+        // Stop dragging when the user releases the mouse button
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+        }
     }
 }
