@@ -8,7 +8,7 @@ public class Pack : MonoBehaviour
     private bool Opened = false;
     Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] List<int> PullList;
-    Inventory inventory;
+    [SerializeField] Inventory inventory;
     
     void Start()
     {

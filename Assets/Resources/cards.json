@@ -188,6 +188,15 @@
       "artist": "Bennie",
       "image": "Card_GENESIS",
       "holographic": true
+    },
+    {
+      "cardName": "The Armored Cannibal",
+      "description": "Betrayed. Murdered. Reborn.",
+      "type": "Metal",
+      "rarity": "SuperRare",
+      "artist": "Kyle",
+      "image": "the_armored_cannibal",
+      "holographic": true
     }
   ]
 }
