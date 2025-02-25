@@ -443,13 +443,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c173d03e5dc08d848bef11b4c5943bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardID: 0
+  cardID: 18
   cardPrefab: {fileID: 0}
   cardData: {fileID: 668560533190264902}
   material: {fileID: 0}
   renderer: {fileID: 0}
   name: {fileID: 1284144429346229865}
   description: {fileID: 7308141440945387275}
+  artist: {fileID: 564237245578405011}
 --- !u!137 &8761126010795209268
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

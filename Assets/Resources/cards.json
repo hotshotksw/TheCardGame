@@ -161,6 +161,15 @@
       "artist": "Jayden",
       "image": "the_hellish_landscape",
       "holographic": true
+    },
+    {
+      "cardName": "The Rage Sprite",
+      "description": "Oh, he's MAD.",
+      "type": "Flame",
+      "rarity": "Uncommon",
+      "artist": "Jacob",
+      "image": "the_rage_sprite",
+      "holographic": true
     }
   ]
 }

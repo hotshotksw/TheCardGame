@@ -171,22 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card7
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -459,22 +447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card3
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -710,22 +686,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card2
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -797,22 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card5
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -884,22 +836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card8
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -971,22 +911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card9
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1058,22 +986,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card4
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1511,22 +1427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card1
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1603,10 +1507,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card0
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: artist
-      value: 
-      objectReference: {fileID: 2107434990}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1673,22 +1573,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card6
       objectReference: {fileID: 0}
-    - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: cardID
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 45b40cf9f7ca6b54cbdbc595c7ec9faa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1707,11 +1595,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 100486791565088055, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
   m_PrefabInstance: {fileID: 2092510303}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2107434990 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 564237245578405011, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
-  m_PrefabInstance: {fileID: 1663456421}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

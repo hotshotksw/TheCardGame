@@ -76,5 +76,6 @@ public enum CardArtist
     Brendon,
     David,
     Jackson,
-    Jayden
+    Jayden,
+    Jacob
 }

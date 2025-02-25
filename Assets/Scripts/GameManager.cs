@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
                 if (OneShot == false)
                 {
                     cards[0].CardObject.GetComponent<UserRotator>().CanRotate = true;
+                    CardHolder.GetComponent<UserRotator>().CanRotate = false;
                     CardHolder.transform.position = new Vector3(0,-20,5);
                     OneShot = true;
                 }
