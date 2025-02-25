@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using Unity.Android.Gradle.Manifest;
 using UnityEngine;
@@ -23,13 +24,17 @@ public class InventoryRenderer : MonoBehaviour
     [SerializeField] private GameObject cardPrefab;
     private List<GameObject> activeCards = new();
 
-    public enum filter
+    public enum Filter
     {
+        NONE,
         RARITY,
-        AMOUNT,
         ARTIST,
-        ID
+        ID,
+        HOLLOW
     }
+
+    public Filter cardFilter = Filter.NONE;
+    
 
     private CardData cardData;
     private Dictionary<string, List<CardDataBase>> cardDictionary;
@@ -39,32 +44,78 @@ public class InventoryRenderer : MonoBehaviour
         int index = 0;
         int yOffset = 0;
         var invenCopy = inven;
-        foreach (var item in invenCopy.GetCompleteCollection())
+
+        switch(cardFilter)
         {
-            if(((index % cardPerRow) == 0) && (index != 0))
-            {
-                yOffset += offsetPerRow;
-            }
-            Debug.LogWarning("CompleteCollection: " + invenCopy.GetCompleteCollection().Count.ToString());
-            Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
-            pos.y = yOffset;
+            case Filter.NONE: // NO FILTER
+                foreach (var item in invenCopy.GetCompleteCollection())
+                {
+                    if (((index % cardPerRow) == 0) && (index != 0))
+                    {
+                        yOffset += offsetPerRow;
+                    }
+                    Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
+                    pos.y = yOffset;
 
-            GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
+                    GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
 
-            int temp = inventory.GetCardAtIndex(index);
-            Debug.LogWarning(temp);
-            // Set up Cards
+                    int temp = inventory.GetCardAtIndex(index);
+                    // Set up Cards
 
-            TextAsset cards = Resources.Load<TextAsset>("cards");
-            cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+                    TextAsset cards = Resources.Load<TextAsset>("cards");
+                    cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
 
-            //cardData.LoadData(cardDictionary["cards"][temp]);
-            //card.GetComponent<CardJSONReader>().cardData = cardData;
-            card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
-            card.GetComponent<CardJSONReader>().cardID = temp;
+                    //cardData.LoadData(cardDictionary["cards"][temp]);
+                    //card.GetComponent<CardJSONReader>().cardData = cardData;
+                    card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
+                    card.GetComponent<CardJSONReader>().cardID = temp;
 
-            activeCards.Add(card);
-            index++;
+                    activeCards.Add(card);
+                    index++;
+                }
+                break;
+
+            case Filter.RARITY: // RARITY FILTER
+                foreach(CardRarity rarity in Enum.GetValues(typeof(CardRarity)))
+                {
+                    foreach (var c in invenCopy.GetCompleteCollection())
+                    {
+                        if (((index % cardPerRow) == 0) && (index != 0))
+                        {
+                            yOffset += offsetPerRow;
+                        }
+                        Vector3 pos = (index - ((yOffset / offsetPerRow) * 3)) * offsetPerCard;
+                        pos.y = yOffset;
+
+                        GameObject card = Instantiate(cardPrefab, transform.position + pos, Quaternion.identity, transform);
+
+                        int temp = inventory.GetCardAtIndex(index);
+                        Debug.LogWarning(rarity);
+                        // Set up Cards
+
+                        TextAsset cards = Resources.Load<TextAsset>("cards");
+                        cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
+
+                        //cardData.LoadData(cardDictionary["cards"][temp]);
+                        //card.GetComponent<CardJSONReader>().cardData = cardData;
+                        card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
+                        card.GetComponent<CardJSONReader>().cardID = temp;
+
+                        if (card.GetComponent<CardData>().cardRarity == rarity)
+                        {
+                            activeCards.Add(card);
+                            index++;
+                        }
+                    }
+                }
+                break;
+            case Filter.ARTIST: // ARTIST FILTER
+                break;
+            case Filter.ID: // ID FILTER
+                break;
+            case Filter.HOLLOW: // HOLLOW FILTER
+                break;
+
         }
     }
 
