@@ -8,9 +8,12 @@ public class Pack : MonoBehaviour
     private bool Opened = false;
     Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] List<int> PullList;
+    Inventory inventory;
     
     void Start()
     {
+        inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+        
         TextAsset cards = Resources.Load<TextAsset>("cards");
         cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
         var names = Enum.GetNames(typeof(CardRarity));
@@ -57,7 +60,17 @@ public class Pack : MonoBehaviour
         }
 
         card.CardObject.GetComponent<CardJSONReader>().UpdateData(cardDictionary[rarity][random].ID);
-        card.CardObject.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", UnityEngine.Random.Range(0, 2));
+
+        if (UnityEngine.Random.Range(0, 101) <= 10)
+        {
+            card.CardObject.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 1);
+            inventory.AddCard(cardDictionary[rarity][random].ID, true);
+        } else {
+            card.CardObject.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 0);
+            inventory.AddCard(cardDictionary[rarity][random].ID, false);
+        }
+        
+        
     }
 
     public void GetTenCards(List<GameManager.SceneCard> cards)

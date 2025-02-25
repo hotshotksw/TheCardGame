@@ -2696,7 +2696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1083079701
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4305,7 +4305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495c553cedafc1a47a5b70e9a379d87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneLoaded: SampleScene
+  sceneLoaded: MainScene
 --- !u!1 &2142758254
 GameObject:
   m_ObjectHideFlags: 0

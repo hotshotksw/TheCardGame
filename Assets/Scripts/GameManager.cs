@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.SearchService;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -27,10 +26,11 @@ public class GameManager : MonoBehaviour
     }
 
     public enum MenuState {
-        MAIN,
-        PACK,
-        OPEN_ONE,
-        OPEN_TEN
+        MAIN = 0,
+        COLLECTION = 1,
+        PACK = 2,
+        OPEN_ONE = 3,
+        OPEN_TEN = 4
     }
 
     [SerializeField] private List<SceneCard> cards = new List<SceneCard>();
@@ -61,12 +61,10 @@ public class GameManager : MonoBehaviour
             switch (menuState)
             {
                 case MenuState.MAIN:
-                    menuState = MenuState.PACK;
-                    OneShot = false;
+                    ChangeMenuState(2);
                     break;
                 default:
-                    OneShot = false;
-                    menuState = MenuState.MAIN;
+                    ChangeMenuState(0);
                     break;
             }
         }
@@ -85,6 +83,13 @@ public class GameManager : MonoBehaviour
                 SetLocation(cards[0].CardObject.transform, MainCameraPoint.transform.position, 2);
                 SetLocation(Pack.transform, new Vector3(0, -10, 0), 2);
                 break;
+
+            case MenuState.COLLECTION:
+                SetLocation(cards[0].CardObject.transform, cards[0].GetOriginalLocation(), 0.25f);
+                SetLocation(Pack.transform, new Vector3(0, -10, 0), 2);
+                SetLocation(CardHolder.transform, new Vector3(0, -20, 5), 2);
+                break;
+
             case MenuState.PACK:
                 if (OneShot == false)
                 {
@@ -92,29 +97,22 @@ public class GameManager : MonoBehaviour
                     OneShot = true;
                 }
                 
-                SetLocation(cards[0].CardObject.transform, cards[0].GetOriginalLocation(), 0.25f);
-                SetLocation(Pack.transform, MainCameraPoint.transform.position, 2);
-
-                if (Input.GetMouseButton(0))
-                {
-                    OneShot = false;
-                    menuState = MenuState.OPEN_ONE;
-                } else if (Input.GetMouseButton(2))
-                {
-                    OneShot = false;
-                    menuState = MenuState.OPEN_TEN;
-                }
+                SetLocation(cards[0].CardObject.transform, cards[0].GetOriginalLocation(), 0.5f);
+                SetLocation(Pack.transform, new Vector3(0, 0.75f, 0), 2);
                 break;
+
             case MenuState.OPEN_ONE:
                     if (OneShot == false)
                     {
                         Pack.GetComponent<Pack>().GetOneCard(cards[0]);
+                        cards[0].CardObject.GetComponent<UserRotator>().CanRotate = true;
                         OneShot = true;
                     }
 
                     SetLocation(cards[0].CardObject.transform, MainCameraPoint.transform.position, 2);
                     SetLocation(Pack.transform, new Vector3(0, -10, 0), 2);
                     break;
+
             case MenuState.OPEN_TEN:
                     if (OneShot == false)
                     {
@@ -130,6 +128,7 @@ public class GameManager : MonoBehaviour
                     SetLocation(CardHolder.transform, new Vector3(0, 0.5f, 5), 2);
                     SetLocation(Pack.transform, new Vector3(0, -10, 5), 2);
                     break;
+
             default:
                 foreach( SceneCard card in cards)
                 {
@@ -138,6 +137,29 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void ChangeMenuState(int newState)
+    {
+        switch (newState)
+        {
+            case 0:
+                menuState = MenuState.MAIN;
+                break;
+            case 1:
+                menuState = MenuState.COLLECTION;
+                break;
+            case 2:
+                menuState = MenuState.PACK;
+                break;
+            case 3:
+                menuState = MenuState.OPEN_ONE;
+                break;
+            case 4:
+                menuState = MenuState.OPEN_TEN;
+                break;
+        }
+        OneShot = false;
     }
 
     private void SetLocation(Transform objectTransform, Vector3 Location, float speed)
