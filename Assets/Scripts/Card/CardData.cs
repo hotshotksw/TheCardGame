@@ -77,5 +77,7 @@ public enum CardArtist
     David,
     Jackson,
     Jayden,
-    Jacob
+    Jacob,
+    Chase,
+    Kian
 }

@@ -197,6 +197,24 @@
       "artist": "Kyle",
       "image": "the_armored_cannibal",
       "holographic": true
+    },
+    {
+      "cardName": "The Bird Murder",
+      "description": "Dis Bird Mirdered Mi Dirter.",
+      "type": "Boulder",
+      "rarity": "Common",
+      "artist": "Chase",
+      "image": "the_bird_murder",
+      "holographic": true
+    },
+    {
+      "cardName": "The Duck",
+      "description": "They don't look so lucky to me. Pretty average, actually.",
+      "type": "Floral",
+      "rarity": "Common",
+      "artist": "Kian",
+      "image": "the_duck",
+      "holographic": true
     }
   ]
 }
