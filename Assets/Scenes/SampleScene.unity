@@ -2800,7 +2800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPerRow: 3
   inventory: {fileID: 1240809380}
-  offsetPerCard: {x: 2, y: 0}
+  offsetPerCard: {x: 1, y: 0}
   offsetPerRow: -2
   cardPrefab: {fileID: 1519665030223366009, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
 --- !u!114 &1240809379

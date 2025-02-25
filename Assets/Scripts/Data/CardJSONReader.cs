@@ -13,7 +13,7 @@ using TMPro;
 [RequireComponent(typeof(CardData))]
 public class CardJSONReader : MonoBehaviour
 {
-    [SerializeField] int cardID;
+    [SerializeField] public int cardID;
     public GameObject cardPrefab;
     public CardData cardData;
     [SerializeField] public Dictionary<string, List<CardDataBase>> cardDictionary;

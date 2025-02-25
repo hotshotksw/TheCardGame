@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardID: 0
   cardPrefab: {fileID: 0}
-  cardData: {fileID: 0}
+  cardData: {fileID: 668560533190264902}
   material: {fileID: 0}
   renderer: {fileID: 0}
   name: {fileID: 1284144429346229865}

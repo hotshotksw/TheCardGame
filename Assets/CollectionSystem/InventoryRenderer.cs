@@ -53,7 +53,7 @@ public class InventoryRenderer : MonoBehaviour
             //cardData.LoadData(cardDictionary["cards"][temp]);
             //card.GetComponent<CardJSONReader>().cardData = cardData;
             card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
-            card.GetComponent<CardJSONReader>().UpdateData(temp);
+            card.GetComponent<CardJSONReader>().cardID = temp;
 
             activeCards.Add(card);
             index++;
