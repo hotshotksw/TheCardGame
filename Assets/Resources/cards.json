@@ -170,6 +170,24 @@
       "artist": "Jacob",
       "image": "the_rage_sprite",
       "holographic": true
+    },
+    {
+      "cardName": "The Masked Jogger",
+      "description": "This guy keeps trying to sell me some off-brand pesticide... Right after beating the @%#$ out of me.",
+      "type": "Brawl",
+      "rarity": "Rare",
+      "artist": "Bennie",
+      "image": "Card_MaskedJogger",
+      "holographic": true
+    },
+    {
+      "cardName": "The Genesis",
+      "description": "Everything starts somewhere.",
+      "type": "Voltaic",
+      "rarity": "SuperRare",
+      "artist": "Bennie",
+      "image": "Card_GENESIS",
+      "holographic": true
     }
   ]
 }
