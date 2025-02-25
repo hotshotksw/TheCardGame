@@ -106,7 +106,7 @@ public class InventoryRenderer : MonoBehaviour
         // Adjust card container size after adding cards (if necessary)
         int rows = Mathf.CeilToInt((float)sortedCollection.Count / cardPerRow);
         maxScrollHeight = rows * offsetPerRow; // Max scroll height based on number of rows
-        minScrollHeight = -120f; // Scroll can't go past the top
+        minScrollHeight = -2000f; // Scroll can't go past the top
     }
 
     private void ClearActiveCards()
