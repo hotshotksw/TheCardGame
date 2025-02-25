@@ -21,6 +21,7 @@ public class CardJSONReader : MonoBehaviour
     [SerializeField] public Renderer renderer;
     [SerializeField] GameObject name;
     [SerializeField] GameObject description;
+    [SerializeField] GameObject artist;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -60,6 +61,7 @@ public class CardJSONReader : MonoBehaviour
         renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
         name.GetComponent<TextMeshPro>().text = cardData.CardName;
         description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
+        artist.GetComponent<TextMeshPro>().text = "Art by " + cardData.cardArtist.ToString();
     }
     
     public void UpdateData(int newID)
@@ -71,6 +73,7 @@ public class CardJSONReader : MonoBehaviour
         renderer.material.SetTexture("_Card_Border", cardData.cardBorder);
         name.GetComponent<TextMeshPro>().text = cardData.CardName;
         description.GetComponent<TextMeshPro>().text = cardData.CardDescription;
+        artist.GetComponent<TextMeshPro>().text = "Art by " + cardData.cardArtist.ToString();
     }
 
     public static List<CardDataBase> getCards()
