@@ -16,7 +16,7 @@ public class CardJSONReader : MonoBehaviour
     [SerializeField] int cardID;
     public GameObject cardPrefab;
     public CardData cardData;
-    [SerializeField] Dictionary<string, List<CardDataBase>> cardDictionary;
+    [SerializeField] public Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] Material material;
     [SerializeField] public Renderer renderer;
     [SerializeField] GameObject name;

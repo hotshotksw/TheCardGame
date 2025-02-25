@@ -77,12 +77,13 @@ public class UIManager : MonoBehaviour
 
     public void ToggleCollection()
     {
+        var invRenderer = Inventory.GetComponent<InventoryRenderer>();
         if(isFilterOpen)
         {
-            Inventory.SetActive(true);
+            invRenderer.ToggleDisplay(true);
         }else
         {
-            Inventory.SetActive(false);
+            invRenderer.ToggleDisplay(false);
         }
     }
 }
