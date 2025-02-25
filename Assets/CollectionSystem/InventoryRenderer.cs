@@ -25,7 +25,7 @@ public class InventoryRenderer : MonoBehaviour
 
     private CardData cardData;
     private Dictionary<string, List<CardDataBase>> cardDictionary;
-    private void Render(Inventory inven)
+    public void Render(Inventory inven)
     {
         ClearActiveCards();
         int index = 0;

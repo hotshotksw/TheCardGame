@@ -13,13 +13,14 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI FilterText;
 
     public GameObject Inventory;
+    public InventoryRenderer inven_renderer;
 
-    public bool isFilterOpen = false;
-    public bool isFilterDropdownOpen = false;
+    private bool isFilterOpen = false;
+    private bool isFilterDropdownOpen = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        inven_renderer.ToggleDisplay(false);
     }
 
     // Update is called once per frame
@@ -44,6 +45,7 @@ public class UIManager : MonoBehaviour
         {
             FilterUI.SetActive(true);
             ProfileTop.SetActive(false);
+            inven_renderer.Render(Inventory.GetComponent<Inventory>());
         }
 
         isFilterOpen = !isFilterOpen;
