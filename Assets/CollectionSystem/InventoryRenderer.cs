@@ -23,6 +23,14 @@ public class InventoryRenderer : MonoBehaviour
     [SerializeField] private GameObject cardPrefab;
     private List<GameObject> activeCards = new();
 
+    public enum filter
+    {
+        RARITY,
+        AMOUNT,
+        ARTIST,
+        ID
+    }
+
     private CardData cardData;
     private Dictionary<string, List<CardDataBase>> cardDictionary;
     public void Render(Inventory inven)
