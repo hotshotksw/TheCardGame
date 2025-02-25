@@ -1534,7 +1534,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6078459045790438811, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: cardID
-      value: 16
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137047994176811698, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
+      propertyPath: m_fontSize
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137047994176811698, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 8761126010795209268, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
       propertyPath: m_Enabled

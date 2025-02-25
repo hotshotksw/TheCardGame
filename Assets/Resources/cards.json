@@ -143,8 +143,7 @@
       "artist": "David",
       "image": "the_lucky_draw",
       "holographic": true
-    }
-    ,
+    },
     {
       "cardName": "The Dog?",
       "description": "He eats metal pipes.",
@@ -152,6 +151,15 @@
       "rarity": "Uncommon",
       "artist": "Jackson",
       "image": "the_dog",
+      "holographic": true
+    },
+    {
+      "cardName": "The Hellish Landscape",
+      "description": "He generate Sun for you.",
+      "type": "Flame",
+      "rarity": "Rare",
+      "artist": "Jayden",
+      "image": "the_hellish_landscape",
       "holographic": true
     }
   ]

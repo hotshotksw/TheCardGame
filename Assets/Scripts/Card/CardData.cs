@@ -75,5 +75,6 @@ public enum CardArtist
     Abby,
     Brendon,
     David,
-    Jackson
+    Jackson,
+    Jayden
 }
