@@ -53,33 +53,30 @@ public class MenuManage : MonoBehaviour
         {
             { "Home", new Dictionary<string, string>
                 {
-                    { "Collection", "HomeToCollection" },
-                    { "Profile", "HomeToProfile" },
-                    { "Favorites", "HomeToFavorites" },
-                    { "CardPull", "HomeToCardPull" }
+                    { "Collection", "HomeToCollection" }, //done
+                    { "Profile", "HomeToProfile" }, //done
+                    { "CardPull", "HomeToCardPull" } //done
                 }
             },
             { "Collection", new Dictionary<string, string>
                 {
-                    { "Home", "CollectionToHome" },
-                    { "Favorites", "CollectionToFavorites" },
-                    { "CardPull", "CollectionToCardPull" }
+                    { "Home", "CollectionToHome" }, //done
+                    { "CardPull", "CollectionToCardPull" }, //done
+                    { "Profile", "CollectionToProfile" } //done
                 }
             },
             { "Profile", new Dictionary<string, string>
                 {
-                    { "Home", "ProfileToHome" }
-                }
-            },
-            { "Favorites", new Dictionary<string, string>
-                {
-                    { "Home", "FavoritesToHome" }
+                    { "Home", "ProfileToHome" }, //done
+                    { "CardPull", "ProfileToCardPull" }, //done
+                    { "Collection", "ProfileTCollection" } //done
                 }
             },
             { "CardPull", new Dictionary<string, string>
                 {
-                    { "Home", "CardPullToHome" },
-                    { "Collection", "CardPullToCollection" }
+                    { "Home", "CardPullToHome" }, //done
+                    { "Collection", "CardPullToCollection" }, //done
+                    { "Profile", "CardPullToProfile" } //done
                 }
             }
         };
