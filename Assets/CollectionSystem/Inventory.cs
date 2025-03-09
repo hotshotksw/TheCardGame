@@ -100,4 +100,9 @@ public class CollectionSet
     public int quantity;
     public bool holographic;
     public bool Has => quantity > 0;
+
+    public bool isHolo()
+    {
+        return holographic;
+    }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class Pack : MonoBehaviour
 {
@@ -63,14 +64,14 @@ public class Pack : MonoBehaviour
 
         if (UnityEngine.Random.Range(0, 101) <= 10)
         {
+            card.CardObject.GetComponent<CardJSONReader>().cardData.isHolo = true;
             card.CardObject.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 1);
             inventory.AddCard(cardDictionary[rarity][random].ID, true);
         } else {
+            card.CardObject.GetComponent<CardJSONReader>().cardData.isHolo = false;
             card.CardObject.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 0);
             inventory.AddCard(cardDictionary[rarity][random].ID, false);
         }
-        
-        
     }
 
     public void GetTenCards(List<GameManager.SceneCard> cards)

@@ -2,6 +2,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Android.Gradle.Manifest;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class InventoryRenderer : MonoBehaviour
@@ -95,12 +97,25 @@ public class InventoryRenderer : MonoBehaviour
             // Load card data from JSON
             TextAsset cards = Resources.Load<TextAsset>("cards");
             cardDictionary = JsonConvert.DeserializeObject<Dictionary<string, List<CardDataBase>>>(cards.text);
-
             card.GetComponent<CardJSONReader>().cardDictionary = cardDictionary;
             card.GetComponent<CardJSONReader>().cardID = temp;
+            card.GetComponent<CardJSONReader>().UpdateData();
+
+            var tempCard = sortedCollection.FirstOrDefault(c => c.cardID == temp);
+
+            if (tempCard.holographic)
+            {
+                card.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 1);
+            }
+            else
+            {
+                card.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 0);
+            }
 
             activeCards.Add(card);
             index++;
+
+
         }
 
         // Adjust card container size after adding cards (if necessary)
@@ -144,7 +159,7 @@ public class InventoryRenderer : MonoBehaviour
         // If dragging, update the position based on mouse movement
         if (isDragging)
         {
-            float deltaY = Input.mousePosition.y - mouseStartPos.y;
+            float deltaY = (Input.mousePosition.y - mouseStartPos.y) / 100;
             Vector3 newPosition = initialContainerPos + new Vector3(0, deltaY, 0);
 
             // Smooth movement by ensuring it doesn't instantly snap back

@@ -21,6 +21,7 @@ public class CardJSONReader : MonoBehaviour
     [SerializeField] GameObject name;
     [SerializeField] GameObject description;
     [SerializeField] GameObject artist;
+    [SerializeField] bool isHolo;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,6 +55,7 @@ public class CardJSONReader : MonoBehaviour
     public void UpdateData()
     {
         cardData.LoadData(cardDictionary["cards"][cardID]);
+        isHolo = cardData.isHolo;
         var cardNAme = cardData.cardImage.ToString();
         var newMaterial = Resources.Load<Material>("Materials/"+cardDictionary["cards"][cardID].image);
         renderer.material.SetTexture("_Card_Image", cardData.cardImage);
@@ -67,6 +69,7 @@ public class CardJSONReader : MonoBehaviour
     {
         cardID = newID;
         cardData.LoadData(cardDictionary["cards"][cardID]);
+        isHolo = cardData.isHolo;
         var newMaterial = Resources.Load<Material>("Materials/" + cardDictionary["cards"][cardID].image);
         renderer.material.SetTexture("_Card_Image", cardData.cardImage);
         renderer.material.SetTexture("_Card_Border", cardData.cardBorder);

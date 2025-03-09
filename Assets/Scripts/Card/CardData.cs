@@ -14,6 +14,7 @@ public class CardData : MonoBehaviour
     public CardArtist cardArtist;
     public Texture2D cardImage;
     public Texture2D cardBorder;
+    public bool isHolo;
 
     public void LoadData(CardDataBase cardData)
     {
@@ -25,6 +26,7 @@ public class CardData : MonoBehaviour
         cardImage = Resources.Load<Texture2D>(cardData.image);
         string borderName = "Card/border_" + cardType.ToString().ToLowerInvariant();
         cardBorder = Resources.Load<Texture2D>(borderName);
+        //isHolo = cardData.holographic;
     }
 }
 

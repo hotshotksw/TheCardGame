@@ -7,7 +7,7 @@
       "rarity": "Mythical",
       "artist": "Joshua",
       "image": "TinyMan",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Maple",
@@ -16,7 +16,7 @@
       "rarity": "Mythical",
       "artist": "Kyle",
       "image": "Maple",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Fiddler",
@@ -25,7 +25,7 @@
       "rarity": "Mythical",
       "artist": "Bennie",
       "image": "Card_Fiddler",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Savior",
@@ -34,7 +34,7 @@
       "rarity": "Mythical",
       "artist": "Bennie",
       "image": "Card_Savior",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Snird",
@@ -43,7 +43,7 @@
       "rarity": "Common",
       "artist": "Bennie",
       "image": "Card_Snird",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Cool Dragon",
@@ -52,7 +52,7 @@
       "rarity": "Mythical",
       "artist": "Bennie",
       "image": "Card_CoolDragon",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Angler",
@@ -61,7 +61,7 @@
       "rarity": "Common",
       "artist": "Bennie",
       "image": "Card_Angler",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Grippler",
@@ -70,7 +70,7 @@
       "rarity": "Common",
       "artist": "Bennie",
       "image": "Card_Grippler",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Hat Man",
@@ -79,7 +79,7 @@
       "rarity": "Rare",
       "artist": "Bennie",
       "image": "Card_Hatman",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "THE Hat Man",
@@ -88,7 +88,7 @@
       "rarity": "Rare",
       "artist": "Bennie",
       "image": "Card_THEHatMan",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Litterer",
@@ -97,7 +97,7 @@
       "rarity": "Common",
       "artist": "Bennie",
       "image": "Card_Litterer",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Rat",
@@ -106,7 +106,7 @@
       "rarity": "Common",
       "artist": "Bennie",
       "image": "Card_Rat",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The BL Dominance",
@@ -115,7 +115,7 @@
       "rarity": "Rare",
       "artist": "Abby",
       "image": "the_bl_dominance",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Builder",
@@ -124,7 +124,7 @@
       "rarity": "Mythical",
       "artist": "Kyle",
       "image": "the_builder",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Evil Hellbug 2",
@@ -133,7 +133,7 @@
       "rarity": "Super Rare",
       "artist": "Brendon",
       "image": "the_evil_hellbug_2",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Lucky Draw",
@@ -142,7 +142,7 @@
       "rarity": "Uncommon",
       "artist": "David",
       "image": "the_lucky_draw",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Dog?",
@@ -151,7 +151,7 @@
       "rarity": "Uncommon",
       "artist": "Jackson",
       "image": "the_dog",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Hellish Landscape",
@@ -160,7 +160,7 @@
       "rarity": "Rare",
       "artist": "Jayden",
       "image": "the_hellish_landscape",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Rage Sprite",
@@ -169,7 +169,7 @@
       "rarity": "Uncommon",
       "artist": "Jacob",
       "image": "the_rage_sprite",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Masked Jogger",
@@ -178,7 +178,7 @@
       "rarity": "Rare",
       "artist": "Bennie",
       "image": "Card_MaskedJogger",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Genesis",
@@ -187,7 +187,7 @@
       "rarity": "SuperRare",
       "artist": "Bennie",
       "image": "Card_GENESIS",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Armored Cannibal",
@@ -196,7 +196,7 @@
       "rarity": "SuperRare",
       "artist": "Kyle",
       "image": "the_armored_cannibal",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Bird Murder",
@@ -205,7 +205,7 @@
       "rarity": "Common",
       "artist": "Chase",
       "image": "the_bird_murder",
-      "holographic": true
+      "holographic": false
     },
     {
       "cardName": "The Duck",
@@ -214,7 +214,7 @@
       "rarity": "Common",
       "artist": "Kian",
       "image": "the_duck",
-      "holographic": true
+      "holographic": false
     }
   ]
 }
