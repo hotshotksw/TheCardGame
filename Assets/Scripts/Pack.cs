@@ -6,7 +6,6 @@ using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class Pack : MonoBehaviour
 {
-    private bool Opened = false;
     Dictionary<string, List<CardDataBase>> cardDictionary;
     [SerializeField] List<int> PullList;
     [SerializeField] Inventory inventory;
@@ -46,7 +45,7 @@ public class Pack : MonoBehaviour
         }
     }
 
-    public void GetOneCard(GameManager.SceneCard card)
+    public void GetOneCard(GameManager_OLD.SceneCard card)
     {
         string rarity = ((CardRarity)UnityEngine.Random.Range(0, Enum.GetValues(typeof(CardRarity)).Length)).ToString();
         while (cardDictionary[rarity].Count == 0)
@@ -74,7 +73,7 @@ public class Pack : MonoBehaviour
         }
     }
 
-    public void GetTenCards(List<GameManager.SceneCard> cards)
+    public void GetTenCards(List<GameManager_OLD.SceneCard> cards)
     {
         for(int i = 0; i < 10; i++)
         {

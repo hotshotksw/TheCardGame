@@ -1429,6 +1429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224719383}
   - component: {fileID: 224719384}
+  - component: {fileID: 224719385}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1452,6 +1453,23 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &224719384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224719382}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64bd7246eb9dd64881862c2c316c7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards: []
+  CardHolder: {fileID: 540580755}
+  Pack: {fileID: 1422065489}
+  MainCameraPoint: {fileID: 250475896}
+  menuState: 0
+--- !u!114 &224719385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
