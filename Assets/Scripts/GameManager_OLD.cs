@@ -110,7 +110,7 @@ public class GameManager_OLD : MonoBehaviour
             case MenuState.OPEN_ONE:
                     if (OneShot == false)
                     {
-                        Pack.GetComponent<Pack>().GetOneCard(cards[0]);
+                        //Pack.GetComponent<Pack>().GetOneCard(cards[0]);
                         cards[0].Rotator.CanRotate = true;
                         OneShot = true;
                     }
@@ -122,7 +122,7 @@ public class GameManager_OLD : MonoBehaviour
             case MenuState.OPEN_TEN:
                     if (OneShot == false)
                     {
-                        Pack.GetComponent<Pack>().GetTenCards(cards);
+                        //Pack.GetComponent<Pack>().GetTenCards(cards);
                         foreach (SceneCard card in cards)
                         {
                             card.CardObject.GetComponent<UserRotator>().CanRotate = false;

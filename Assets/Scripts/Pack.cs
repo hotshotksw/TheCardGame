@@ -50,7 +50,7 @@ public class Pack : MonoBehaviour
         }
     }
 
-    public void GetOneCard(GameManager_OLD.SceneCard card)
+    public void GetOneCard(GameManager.SceneCard card)
     {
         string rarity = getRarity();
 
@@ -74,7 +74,7 @@ public class Pack : MonoBehaviour
         }
     }
 
-    public void GetTenCards(List<GameManager_OLD.SceneCard> cards)
+    public void GetTenCards(List<GameManager.SceneCard> cards)
     {
         for(int i = 0; i < 10; i++)
         {
