@@ -690,12 +690,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c93a29df9324298a5caf692cc83e673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 961739753}
   cardPerRow: 2
   inventory: {fileID: 130873274}
   offsetPerCard: {x: 1.35, y: 0}
   offsetPerRow: -2
   cardPrefab: {fileID: 1519665030223366009, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
   cardContainer: {fileID: 1528252169}
+  gameManager: {fileID: 0}
+  menuManager: {fileID: 0}
   cardFilter: 0
 --- !u!114 &130873273
 MonoBehaviour:
