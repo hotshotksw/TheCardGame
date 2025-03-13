@@ -93,15 +93,17 @@ public class GameManager : MonoBehaviour
             case MenuState.PACK:
                 MainCard.SetLocation(MainCard.GetOriginalLocation(), 0.5f);
                 SetObjectLocation(Pack.transform, new Vector3(0, 0.75f, 0), 2);
+                SetObjectLocation(CardHolder.transform, new Vector3(0, -20, 5), 2);
                 break;
             case MenuState.OPEN_ONE:
                 MainCard.SetLocation(MainCameraPoint.transform.position, 2);
                 SetObjectLocation(Pack.transform, new Vector3(0, -10, 0), 2);
+                SetObjectLocation(CardHolder.transform, new Vector3(0, -20, 5), 2);
                 break;
 
             case MenuState.OPEN_TEN:
-                SetObjectLocation(CardHolder.transform, new Vector3(0, 0.5f, 5), 2);
                 SetObjectLocation(Pack.transform, new Vector3(0, -10, 5), 2);
+                SetObjectLocation(CardHolder.transform, new Vector3(0, 0.5f, 5), 2);
                 break;
         }
     }
@@ -116,7 +118,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeMenuState(int newState)
     {
-        if (UserMenuState == (MenuState)newState) return;
+        if ((UserMenuState == MenuState.OPEN_ONE && UserMenuState == (MenuState)newState) || (UserMenuState == MenuState.OPEN_TEN && UserMenuState == (MenuState)newState))
+        {
+            newState = 2;
+        }
         
         UserMenuState = (MenuState)newState;
         switch (UserMenuState)
@@ -138,15 +143,15 @@ public class GameManager : MonoBehaviour
                 Pack.GetComponent<Pack>().GetOneCard(cards[0]);
                 MainCard.SetRotation(true);
                 break;
-
             case MenuState.OPEN_TEN:
                 Pack.GetComponent<Pack>().GetTenCards(cards);
                 foreach (SceneCard card in cards)
                 {
                     card.SetRotation(false);
-                    card.CardObject.transform.position = card.GetOriginalLocation(); //SetLocation(card.GetOriginalLocation(), 100);
+                    card.CardObject.transform.position = card.GetOriginalLocation();
                 }
                 CardHolder.GetComponent<UserRotator>().CanRotate = true;
+                CardHolder.transform.position = new Vector3(0,-20,5);
                 break;
             default:
                 break;
