@@ -18,13 +18,17 @@ public class InventoryRenderer : MonoBehaviour
         Inventory.OnCollectionChanged -= Render;
     }
 
+    [SerializeField] private Transform cameraTransform;
     [SerializeField] private int cardPerRow;
     [SerializeField] private Inventory inventory;
     [SerializeField] private Vector2 offsetPerCard;
     [SerializeField] private int offsetPerRow;
     [SerializeField] private GameObject cardPrefab;
     [SerializeField] private Transform cardContainer;  // The container to hold cards in the scene
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private MenuManage menuManager;
     private List<GameObject> activeCards = new();
+    private bool isActive = false;
 
     private bool isDragging = false;
     private Vector3 initialContainerPos;
@@ -102,7 +106,6 @@ public class InventoryRenderer : MonoBehaviour
             card.GetComponent<CardJSONReader>().UpdateData();
 
             var tempCard = sortedCollection.FirstOrDefault(c => c.cardID == temp);
-
             if (tempCard.holographic)
             {
                 card.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 1);
@@ -138,40 +141,64 @@ public class InventoryRenderer : MonoBehaviour
         if (isVisible)
         {
             OnEnable();
+            isActive = true;
         }
         else
         {
             ClearActiveCards();
             OnDisable();
+            isActive = false;
         }
     }
 
     private void Update()
     {
-        // Check if the user clicks and starts dragging
-        if (Input.GetMouseButtonDown(0))
+        if (gameManager.UserMenuState == GameManager.MenuState.COLLECTION)
         {
-            isDragging = true;
-            mouseStartPos = Input.mousePosition;
-            initialContainerPos = cardContainer.position;
-        }
+            // Check if the user clicks and starts dragging
+            if (Input.GetMouseButtonDown(0))
+            {
+                isDragging = true;
+                mouseStartPos = Input.mousePosition;
+                initialContainerPos = cardContainer.position;
+            }
 
-        // If dragging, update the position based on mouse movement
-        if (isDragging)
-        {
-            float deltaY = (Input.mousePosition.y - mouseStartPos.y) / 100;
-            Vector3 newPosition = initialContainerPos + new Vector3(0, deltaY, 0);
+            // If dragging, update the position based on mouse movement
+            if (isDragging)
+            {
+                float deltaY = (Input.mousePosition.y - mouseStartPos.y) / 100;
+                Vector3 newPosition = initialContainerPos + new Vector3(0, deltaY, 0);
 
-            // Smooth movement by ensuring it doesn't instantly snap back
-            newPosition.y = Mathf.Clamp(newPosition.y, -maxScrollHeight, 0); // Prevent going past the top or bottom
+                // Smooth movement by ensuring it doesn't instantly snap back
+                newPosition.y = Mathf.Clamp(newPosition.y, -maxScrollHeight, 0); // Prevent going past the top or bottom
 
-            cardContainer.position = Vector3.Lerp(cardContainer.position, newPosition, Time.deltaTime * 10f); // Smooth transition
-        }
+                cardContainer.position = Vector3.Lerp(cardContainer.position, newPosition, Time.deltaTime * 10f); // Smooth transition
+            }
 
-        // Stop dragging when the user releases the mouse button
-        if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
+            // Stop dragging when the user releases the mouse button
+            if (Input.GetMouseButtonUp(0))
+            {
+                isDragging = false;
+                RaycastHit hit;
+                if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, 1000))
+                {
+                    Debug.DrawRay(cameraTransform.position, cameraTransform.transform.forward, Color.red, 5.0f);
+                    Debug.LogWarning("hit");
+                    gameManager.ChangeMenuState(0);
+                    menuManager.OpenMenu("Home");
+
+                    // Get clicked Card
+                    GameObject clickedCard = hit.transform.gameObject;
+                    int clickedCardID = clickedCard.GetComponent<CardJSONReader>().cardID;
+                }
+                else
+                {
+                    Debug.DrawRay(cameraTransform.position, cameraTransform.transform.forward, Color.yellow, 5.0f);
+                    Debug.LogWarning("No hit");
+                    gameManager.ChangeMenuState(1);
+                    menuManager.OpenMenu("Collection");
+                }
+            }
         }
     }
 }
