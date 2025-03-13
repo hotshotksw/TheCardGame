@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 1166416481162771459}
   - component: {fileID: 668560533190264902}
   - component: {fileID: 2413091393426734378}
+  - component: {fileID: 7489607947963866632}
   m_Layer: 0
   m_Name: Card
   m_TagString: Card
@@ -577,6 +578,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &7489607947963866632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519665030223366009}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.014698558, y: 0.021199984, z: 0.0015029743}
+  m_Center: {x: 0.00005016476, y: -0.00006956577, z: -0.00003538221}
 --- !u!1 &2526197737762623319
 GameObject:
   m_ObjectHideFlags: 0

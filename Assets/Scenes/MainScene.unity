@@ -697,8 +697,8 @@ MonoBehaviour:
   offsetPerRow: -2
   cardPrefab: {fileID: 1519665030223366009, guid: eb353f1f25ada2346aa6fd4d4b85c8eb, type: 3}
   cardContainer: {fileID: 1528252169}
-  gameManager: {fileID: 0}
-  menuManager: {fileID: 0}
+  gameManager: {fileID: 224719384}
+  menuManager: {fileID: 666672925}
   cardFilter: 0
 --- !u!114 &130873273
 MonoBehaviour:
@@ -7364,7 +7364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -408.8, y: -844.5201}
+  m_AnchoredPosition: {x: -410.2, y: -844.5201}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1529084869

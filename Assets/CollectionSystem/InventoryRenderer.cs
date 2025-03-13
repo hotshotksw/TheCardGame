@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.Android.Gradle.Manifest;
 using Unity.Mathematics;
 using UnityEngine;
+using static UnityEngine.Rendering.VolumeComponent;
 
 public class InventoryRenderer : MonoBehaviour
 {
@@ -158,9 +159,9 @@ public class InventoryRenderer : MonoBehaviour
             // Check if the user clicks and starts dragging
             if (Input.GetMouseButtonDown(0))
             {
-                isDragging = true;
                 mouseStartPos = Input.mousePosition;
                 initialContainerPos = cardContainer.position;
+                isDragging = true;
             }
 
             // If dragging, update the position based on mouse movement
@@ -179,9 +180,12 @@ public class InventoryRenderer : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 isDragging = false;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
-                if (Physics.Raycast(cameraTransform.position, cameraTransform.transform.forward, out hit, 1000))
+                if (Physics.Raycast(ray, out hit, 1000))
                 {
+                    List<CollectionSet> sortedCollection = new List<CollectionSet>(inventory.GetCompleteCollection());
+
                     Debug.DrawRay(cameraTransform.position, cameraTransform.transform.forward, Color.red, 5.0f);
                     Debug.LogWarning("hit");
                     gameManager.ChangeMenuState(0);
@@ -190,6 +194,21 @@ public class InventoryRenderer : MonoBehaviour
                     // Get clicked Card
                     GameObject clickedCard = hit.transform.gameObject;
                     int clickedCardID = clickedCard.GetComponent<CardJSONReader>().cardID;
+                    gameManager.MainCard.CardObject.GetComponent<CardJSONReader>().UpdateData(clickedCardID);
+
+                    var tempCard = sortedCollection.FirstOrDefault(c => c.cardID == clickedCardID);
+                    if (tempCard.holographic)
+                    {
+                        gameManager.MainCard.CardObject.GetComponent<CardJSONReader>().cardData.isHolo = true;
+                        gameManager.MainCard.CardObject.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 1);
+                        inventory.AddCard(clickedCardID, true);
+                    }
+                    else
+                    {
+                        gameManager.MainCard.CardObject.GetComponent<CardJSONReader>().cardData.isHolo = false;
+                        gameManager.MainCard.CardObject.GetComponent<CardJSONReader>().renderer.material.SetInt("_Holographic", 0);
+                        inventory.AddCard(clickedCardID, false);
+                    }
                 }
                 else
                 {

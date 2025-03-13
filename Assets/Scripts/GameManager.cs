@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public MenuState UserMenuState = MenuState.START;
     [SerializeField] GameObject CardHolder;
     [SerializeField] GameObject Pack;
-    [SerializeField] SceneCard MainCard;
+    [SerializeField] public SceneCard MainCard;
     [SerializeField] private Transform MainCameraPoint;
     List<SceneCard> cards = new List<SceneCard>();
 
@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
         ChangeMenuState(0);
     }
+
 
     void Update()
     {
@@ -102,6 +103,14 @@ public class GameManager : MonoBehaviour
                 SetObjectLocation(CardHolder.transform, new Vector3(0, 0.5f, 5), 2);
                 SetObjectLocation(Pack.transform, new Vector3(0, -10, 5), 2);
                 break;
+        }
+    }
+    public void SetCard(GameObject card)
+    {
+        if (card.gameObject.CompareTag("Card"))
+        {
+            MainCard = new SceneCard(card.gameObject);
+            MainCard.SetRotation(false);
         }
     }
 
